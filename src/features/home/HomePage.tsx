@@ -2,6 +2,7 @@ import About from './components/About';
 import Gallery from './components/Gallery';
 import Heading from './components/Heading';
 import LatestNews from './components/LatestNews';
+import Members from './components/Members';
 import OtherSay from './components/OtherSay';
 import UpcomingEvent from './components/UpcomingEvent';
 
@@ -26,6 +27,7 @@ const HomePage = () => {
       <Gallery />
       <OtherSay />
       <UpcomingEvent />
+      <Members />
     </>
   );
 };
