@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: karla;
+  }
+}
+
+@layer utilities {
+  h1 {
+    @apply text-[39px] md:text-[64px] font-semibold font-barlow leading-[41px] md:leading-[67px];
+  }
+  h2 {
+    @apply text-[29px] md:text-[48px] font-semibold font-barlow leading-[35px] md:leading-[57px];
+  }
+  h3 {
+    @apply text-[24px] md:text-[32px] font-barlow leading-[27px] md:leading-[38px];
+  }
+  .subheading {
+    @apply text-[20px] md:text-[24px] font-medium font-barlow leading-[23px] md:leading-[28px];
+  }
+  .body2 {
+    @apply text-[16px] md:text-[20px] font-karla leading-[19px] md:leading-[24px];
+  }
+  .body1 {
+    @apply text-[14px] md:text-[16px] font-karla leading-[16.6px] md:leading-[19px];
+  }
+  .subtitle {
+    @apply text-[11px] md:text-[13px] font-karla leading-[12.8px] md:leading-[15.2px];
+  }
+  .text-button {
+    @apply text-[14px] md:text-[16px] font-medium uppercase font-karla leading-[16.3px] md:leading-[18.7px];
+  }
+  .label {
+    @apply text-[14px] md:text-[16px] font-medium uppercase font-barlow leading-[19.2px] md:leading-[16.8px];
+  }
+}
