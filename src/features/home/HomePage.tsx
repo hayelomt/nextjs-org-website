@@ -2,6 +2,7 @@ import About from './components/About';
 import Gallery from './components/Gallery';
 import Heading from './components/Heading';
 import LatestNews from './components/LatestNews';
+import OtherSay from './components/OtherSay';
 
 const HomePage = () => {
   return (
@@ -21,7 +22,8 @@ const HomePage = () => {
           </button>
         </div>
       </div>
-      {/* <Gallery /> */}
+      <Gallery />
+      <OtherSay />
     </>
   );
 };

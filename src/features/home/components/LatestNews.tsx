@@ -29,7 +29,7 @@ const LatestNews = () => {
   return (
     <>
       <section className="px-global bg-white">
-        <div className="max-w-global mx-auto flex flex-col pt-[35px] sm:pt-[72px] pb-[50px] sm:pb-[111px] items-center">
+        <div className="max-w-global mx-auto flex flex-col pt-[35px] sm:pt-[72px] pb-[30px] sm:pb-[60px] items-center">
           <h2 className="mb-[17px] sm:mb-[34px] text-dark-text">
             Latest <span className="text-red">News</span> & Blogs
           </h2>
@@ -43,7 +43,7 @@ const LatestNews = () => {
           </div>
 
           <div className=" w-full">
-            <div className="flex max-w-[1370px] mx-auto overflow-x-auto gap-x-[20px] sm:gap-x-[45px] pb-10">
+            <div className="flex max-w-[1370px] mx-auto overflow-x-auto gap-x-[20px] sm:gap-x-[45px] pb-5 sm:pb-10">
               {Array(4)
                 .fill(null)
                 .map((_, i) => (

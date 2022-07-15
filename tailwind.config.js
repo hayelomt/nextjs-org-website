@@ -5,6 +5,9 @@ module.exports = {
   content: ['./pages/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      screens: {
+        xs: '410px',
+      },
       colors: {
         brand: '#402A74',
         red: '#E5322C',

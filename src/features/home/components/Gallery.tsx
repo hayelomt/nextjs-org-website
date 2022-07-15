@@ -34,10 +34,10 @@ const Gallery = () => {
               </div>
             </div>
 
-            <div className="mt-6 xl:mt-0 w-full flex-shrink max-w-[680px] xl:max-w-none mx-auto rounded-[20px] ">
+            <div className="mt-6 xl:mt-0 w-full flex-shrink max-w-[680px] xl:max-w-none mx-auto rounded-[20px] flex justify-center">
               <img
                 src="/imgs/home/gallery2.jpeg"
-                className="w-full min-h-fit object-cover"
+                className="w-full min-h-fit object-cover self-center"
                 alt="gallery item 2"
               />
             </div>
