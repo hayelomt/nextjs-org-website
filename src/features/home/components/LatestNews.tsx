@@ -1,6 +1,6 @@
 const LatestNews = () => {
   const BlogCard = () => (
-    <div
+    <article
       className="w-[430px] flex flex-col  rounded-[24px] sm:rounded-[32px] flex-shrink-0"
       style={{ boxShadow: '0px 1px 6px 4px rgba(0, 0, 0, 0.05)' }}
     >
@@ -9,7 +9,9 @@ const LatestNews = () => {
         style={{ backgroundImage: 'url("/imgs/home/talk.jpeg")' }}
       ></div>
       <div className="py-[22px] sm:py-[32px] px-[18px] sm:px-[27px] flex flex-col">
-        <h3 className="mb-2">Lorem ipsum dolor sit amet, consectetur </h3>
+        <h3 className="mb-2 text-dark-text">
+          Lorem ipsum dolor sit amet, consectetur
+        </h3>
         <p className="body1 text-light-text mb-[18px] sm:mb-[24px]">
           Maecenas suscipit in nulla tristique pretium. Praesent eget tellus
           nibh. Praesent mi orci, fringilla sed est ac, efficitur auctor velit.
@@ -21,14 +23,14 @@ const LatestNews = () => {
           <p className="subtitle text-light-text">12 July, 2022</p>
         </div>
       </div>
-    </div>
+    </article>
   );
 
   return (
     <>
-      <div className="px-global bg-white">
+      <section className="px-global bg-white">
         <div className="max-w-global mx-auto flex flex-col pt-[35px] sm:pt-[72px] pb-[50px] sm:pb-[111px] items-center">
-          <h2 className="mb-[17px] sm:mb-[34px]">
+          <h2 className="mb-[17px] sm:mb-[34px] text-dark-text">
             Latest <span className="text-red">News</span> & Blogs
           </h2>
           <div className="max-w-[736px] mb-[30px] sm:mb-[67px]">
@@ -48,7 +50,7 @@ const LatestNews = () => {
               ))}
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };

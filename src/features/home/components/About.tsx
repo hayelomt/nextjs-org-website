@@ -51,10 +51,10 @@ const About = () => {
 
           <div className="flex flex-col justify-center p-6 md:p-0">
             <p className="subgeading mb-1 text-red">About CORHA</p>
-            <h2 className="mb-[35px] max-w-[433px]">
+            <h2 className="mb-[35px] max-w-[433px] text-dark-text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
-            <p className="body1 mb-[54px]">
+            <p className="body1 mb-[54px] text-light-text">
               The Consortium of Reproductive Health Associations (CORHA) is a
               member driven umbrella organizations of 85 foreign and local
               NGOs/CSOs committed to the provision of comprehensive, integrated
