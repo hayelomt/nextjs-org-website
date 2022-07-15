@@ -10,6 +10,7 @@ module.exports = {
         red: '#E5322C',
         dark: '#261945',
         'gray-bg': '#F4F2F1',
+        'light-text': '#777777',
       },
       fontFamily: {
         karla: ['Karla', defaultTheme.fontFamily.sans],
