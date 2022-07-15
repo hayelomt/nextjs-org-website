@@ -9,6 +9,7 @@ module.exports = {
         brand: '#402A74',
         red: '#E5322C',
         dark: '#261945',
+        'gray-bg': '#F4F2F1',
       },
       fontFamily: {
         karla: ['Karla', defaultTheme.fontFamily.sans],
@@ -16,5 +17,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };
