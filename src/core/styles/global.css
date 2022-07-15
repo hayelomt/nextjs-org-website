@@ -36,4 +36,16 @@
   .label {
     @apply text-[14px] md:text-[16px] font-medium uppercase font-barlow leading-[19.2px] md:leading-[16.8px];
   }
+  .max-w-global {
+    @apply max-w-[1379px];
+  }
+  .px-global {
+    @apply px-2 sm:px-4;
+  }
+  .center {
+    @apply flex items-center justify-center;
+  }
+  .btn {
+    @apply px-[18px] sm:px-[32px] py-[10px] sm:py-[14.5px] text-white bg-red rounded-[16px] md:rounded-[26px] text-button center;
+  }
 }
