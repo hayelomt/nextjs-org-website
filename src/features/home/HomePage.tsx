@@ -3,6 +3,7 @@ import Gallery from './components/Gallery';
 import Heading from './components/Heading';
 import LatestNews from './components/LatestNews';
 import OtherSay from './components/OtherSay';
+import UpcomingEvent from './components/UpcomingEvent';
 
 const HomePage = () => {
   return (
@@ -24,6 +25,7 @@ const HomePage = () => {
       </div>
       <Gallery />
       <OtherSay />
+      <UpcomingEvent />
     </>
   );
 };

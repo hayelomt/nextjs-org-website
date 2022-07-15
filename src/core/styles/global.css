@@ -16,7 +16,7 @@
     @apply text-[29px] md:text-[48px] font-semibold font-barlow leading-[35px] md:leading-[57px];
   }
   h3 {
-    @apply text-[24px] md:text-[32px] font-barlow leading-[27px] md:leading-[38px];
+    @apply text-[24px] md:text-[32px] font-barlow leading-[27px] md:leading-[38px] font-semibold;
   }
   .subheading {
     @apply text-[20px] md:text-[24px] font-medium font-barlow leading-[23px] md:leading-[28px];
