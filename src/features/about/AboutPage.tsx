@@ -1,6 +1,8 @@
 import Layout from '../../core/ut/layout/Layout';
 import AboutHeading from './components/AboutHeading';
+import AboutTeam from './components/AboutTeam';
 import Existence from './components/Existence';
+import Status from './components/Status';
 
 const AboutPage = () => {
   return (
@@ -8,6 +10,8 @@ const AboutPage = () => {
       <Layout>
         <AboutHeading />
         <Existence />
+        <Status />
+        <AboutTeam />
       </Layout>
     </>
   );
