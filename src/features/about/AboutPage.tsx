@@ -1,5 +1,6 @@
 import Layout from '../../core/ut/layout/Layout';
 import AboutHeading from './components/AboutHeading';
+import AboutOthersSay from './components/AboutOthersSay';
 import AboutTeam from './components/AboutTeam';
 import Existence from './components/Existence';
 import Status from './components/Status';
@@ -12,6 +13,7 @@ const AboutPage = () => {
         <Existence />
         <Status />
         <AboutTeam />
+        <AboutOthersSay />
       </Layout>
     </>
   );
