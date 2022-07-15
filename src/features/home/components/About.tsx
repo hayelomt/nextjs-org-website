@@ -1,6 +1,6 @@
 const About = () => {
   const CardItem = () => (
-    <div className="flex h-full w-full max-w-[400px] flex-col overflow-hidden rounded-[20px]">
+    <div className="flex h-full w-full max-w-[400px] flex-col overflow-hidden rounded-[20px] flex-shrink-0">
       <div
         className="flex-1 bg-cover"
         style={{
@@ -22,12 +22,14 @@ const About = () => {
     <>
       <div className="px-global bg-gray-bg">
         <div className="max-w-global relative mx-auto mb-[40px] h-[360px] w-full bg-white sm:mb-[84px]">
-          <div className="absolute top-[-92px] flex h-[373px] w-full justify-center gap-x-[30px] overflow-x-auto px-[48px]">
-            {Array(3)
-              .fill(null)
-              .map((_, i) => (
-                <CardItem key={`card-${i}`} />
-              ))}
+          <div className="absolute top-[-82px] h-[373px] w-full justify-center px-[48px] mx-auto flex">
+            <div className="ml-[10px] w-full max-w-[1284px] h-full flex flex-row gap-x-[30px] overflow-x-auto mx-aut">
+              {Array(3)
+                .fill(null)
+                .map((_, i) => (
+                  <CardItem key={`card-${i}`} />
+                ))}
+            </div>
           </div>
         </div>
 

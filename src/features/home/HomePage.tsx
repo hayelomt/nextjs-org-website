@@ -1,4 +1,5 @@
 import About from './components/About';
+import Gallery from './components/Gallery';
 import Heading from './components/Heading';
 import LatestNews from './components/LatestNews';
 
@@ -20,6 +21,7 @@ const HomePage = () => {
           </button>
         </div>
       </div>
+      {/* <Gallery /> */}
     </>
   );
 };

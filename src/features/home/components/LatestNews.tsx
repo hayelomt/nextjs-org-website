@@ -1,7 +1,7 @@
 const LatestNews = () => {
   const BlogCard = () => (
     <article
-      className="w-[430px] flex flex-col  rounded-[24px] sm:rounded-[32px] flex-shrink-0"
+      className="w-[430px] flex flex-col  rounded-[24px] sm:rounded-[32px] flex-shrink-0 bg-white"
       style={{ boxShadow: '0px 1px 6px 4px rgba(0, 0, 0, 0.05)' }}
     >
       <div
@@ -42,12 +42,14 @@ const LatestNews = () => {
             </p>
           </div>
 
-          <div className="flex flex-row gap-x-[30px] sm:gap-x-[45px] overflow-x-auto max-w-global pb-10 px-4">
-            {Array(3)
-              .fill(null)
-              .map((_, i) => (
-                <BlogCard key={`blog-card-${i}`} />
-              ))}
+          <div className=" w-full">
+            <div className="flex max-w-[1370px] mx-auto overflow-x-auto gap-x-[20px] sm:gap-x-[45px] pb-10">
+              {Array(4)
+                .fill(null)
+                .map((_, i) => (
+                  <BlogCard key={`blog-card-${i}`} />
+                ))}
+            </div>
           </div>
         </div>
       </section>
