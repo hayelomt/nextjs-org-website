@@ -30,9 +30,42 @@ const GalleryPage = () => {
           </div>
         </div>
 
-        <div className="max-w-global mx-auto flex flex-col items-center">
-          <Gallery />
+        <div className="max-w-global mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4">
+            <div className="bg-brand min-h-[280px] h-full center text-white">
+              <h3>1</h3>
+            </div>
+            <div className="bg-brand min-h-[280px] h-full center text-white lg:col-span-2 lg:row-span-3">
+              <h3>2</h3>
+            </div>
+            <div className="bg-brand min-h-[280px] h-full center text-white  ">
+              <h3>3</h3>
+            </div>
+            <div className="bg-brand min-h-[280px] h-full center text-white ">
+              <h3>4</h3>
+            </div>
+            <div className="bg-brand min-h-[280px] h-full center text-white ">
+              <h3>5</h3>
+            </div>
+            <div className="bg-brand min-h-[280px] h-full center text-white ">
+              <h3>6</h3>
+            </div>
+            <div className="bg-brand min-h-[280px] h-full center text-white  ">
+              <h3>7</h3>
+            </div>
+            <div className="bg-brand min-h-[280px] h-full center text-white ">
+              <h3>8</h3>
+            </div>
+            <div className="bg-brand min-h-[280px] h-full center text-white ">
+              <h3>9</h3>
+            </div>
+            <div className="bg-brand min-h-[280px] h-full center text-white ">
+              <h3>10</h3>
+            </div>
+          </div>
+        </div>
 
+        <div className="max-w-global mx-auto flex flex-col items-center">
           <div className="w-full center gap-x-[14px] max-w-full overflow-x-auto">
             <button className="bg-dark-blue w-[40px] h-[40px] rounded-[12px] center text-white font-barlow ">
               &#60;&#60;
