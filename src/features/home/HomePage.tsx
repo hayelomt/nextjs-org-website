@@ -1,6 +1,5 @@
 import Layout from '../../core/ui/layout/Layout';
-import { ArrowedButton } from '../../core/ui/shared';
-import Icons from '../../core/ui/utils/icons';
+import { ArrowedButton } from '../../core/ui/shared/buttons';
 import About from './components/About';
 import Gallery from './components/Gallery';
 import Heading from './components/Heading';

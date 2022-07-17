@@ -1,5 +1,5 @@
 import Layout from '../../core/ui/layout/Layout';
-import AboutHeading from './components/AboutHeading';
+import { ImageHeading } from '../../core/ui/shared/hading';
 import AboutOthersSay from './components/AboutOthersSay';
 import AboutTeam from './components/AboutTeam';
 import Existence from './components/Existence';
@@ -9,7 +9,11 @@ const AboutPage = () => {
   return (
     <>
       <Layout>
-        <AboutHeading />
+        <ImageHeading
+          imgUrl="/imgs/about/team.jpeg"
+          title={<h1 className="mb-3 text-white">About Us </h1>}
+          crumbLinks={['Home', 'About']}
+        />
         <Existence />
         <Status />
         <AboutTeam />

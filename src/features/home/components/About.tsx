@@ -1,4 +1,4 @@
-import { ArrowedButton } from '../../../core/ui/shared';
+import { ArrowedButton } from '../../../core/ui/shared/buttons';
 import Icons from '../../../core/ui/utils/icons';
 
 const About = () => {

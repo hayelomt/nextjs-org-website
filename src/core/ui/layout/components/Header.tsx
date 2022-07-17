@@ -1,18 +1,22 @@
 import clsx from 'clsx';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { ReactElement, useState } from 'react';
-import { ArrowedButton } from '../../shared';
+import { ArrowedButton } from '../../shared/buttons';
 import Icons from '../../utils/icons';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const router = useRouter();
 
   const MobileDropLink = ({
     label,
     subLinks,
+    active = false,
   }: {
     label: string;
     subLinks: ReactElement;
+    active?: boolean;
   }) => {
     const [showSubLinks, setShowSubLinks] = useState(false);
 
@@ -22,7 +26,9 @@ const Header = () => {
           className="flex items-center"
           onClick={() => setShowSubLinks(!showSubLinks)}
         >
-          <h3>{label}</h3>
+          <h3 className={clsx([active ? 'active-link' : 'inactive-link'])}>
+            {label}
+          </h3>
           <span
             className={clsx('ml-1 mt-1 transition-transform duration-200', [
               showSubLinks ? 'transform rotate-90' : 'transform rotate-0',
@@ -133,9 +139,14 @@ const Header = () => {
         <div className="relative w-full h-full">
           <div className="relative flex h-full w-full flex-col items-center justify-center -translate-y-[6%]">
             <div className="flex flex-col items-center gap-y-6">
-              <MobileLinkItem label="Home" url="/" active={true} />
+              <MobileLinkItem
+                label="Home"
+                url="/"
+                active={router.pathname === '/'}
+              />
               <MobileDropLink
                 label="About"
+                active={router.pathname.startsWith('/about')}
                 subLinks={
                   <>
                     <p className="text-[24px]">Us</p>
@@ -218,8 +229,11 @@ const Header = () => {
 
       <div className="flex w-full items-center justify-between py-4 pl-[50px] gap-x-2 pr-2">
         <div className="flex gap-x-[32px]">
-          <LinkItem label="Home" url="/" active={true} />
-          <LinkDropItem label="About" active={false}>
+          <LinkItem label="Home" url="/" active={router.pathname === '/'} />
+          <LinkDropItem
+            label="About"
+            active={router.pathname.startsWith('/about')}
+          >
             <>
               <LinkItem label="Team" url="/team" />
               <LinkItem label="Projects" url="/projects" />
