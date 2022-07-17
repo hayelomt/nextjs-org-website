@@ -1,3 +1,6 @@
+import Layout from '../../core/ui/layout/Layout';
+import { ArrowedButton } from '../../core/ui/shared';
+import Icons from '../../core/ui/utils/icons';
 import About from './components/About';
 import Gallery from './components/Gallery';
 import Heading from './components/Heading';
@@ -9,25 +12,29 @@ import UpcomingEvent from './components/UpcomingEvent';
 const HomePage = () => {
   return (
     <>
-      <Heading />
-      <About />
-      <LatestNews />
-      <div className="px-global bg-brand">
-        <div className="max-w-global py-[28px] sm:py-[42px] flex justify-between mx-auto">
-          <h3 className="text-white">
-            Become A <span className="text-red">Volunteer</span>
-          </h3>
+      <Layout>
+        <Heading />
+        <About />
+        <LatestNews />
+        <div className="px-global bg-brand">
+          <div className="max-w-global py-[28px] sm:py-[42px] flex justify-between mx-auto">
+            <h3 className="text-white">
+              Become A <span className="text-red">Volunteer</span>
+            </h3>
 
-          <button className="btn !bg-transparent border-[2px] border-white">
-            <span className="mr-[10px]">Learn More</span>
-            ic
-          </button>
+            <ArrowedButton
+              label="Learn More"
+              onClick={() => {}}
+              className="!bg-transparent border-[2px] border-white"
+              arrowClassName="!text-brand"
+            />
+          </div>
         </div>
-      </div>
-      <Gallery />
-      <OtherSay />
-      <UpcomingEvent />
-      <Members />
+        <Gallery />
+        <OtherSay />
+        <UpcomingEvent />
+        <Members />
+      </Layout>
     </>
   );
 };

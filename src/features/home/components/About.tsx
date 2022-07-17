@@ -1,6 +1,9 @@
+import { ArrowedButton } from '../../../core/ui/shared';
+import Icons from '../../../core/ui/utils/icons';
+
 const About = () => {
   const CardItem = () => (
-    <div className="flex h-full w-full max-w-[400px] flex-col overflow-hidden rounded-[20px] flex-shrink-0">
+    <div className="flex h-full w-fit xs:w-[400px] flex-col overflow-hidden rounded-[20px] flex-shrink-0 ">
       <div
         className="flex-1 bg-cover"
         style={{
@@ -13,7 +16,9 @@ const About = () => {
           <p className="body1 line-clamp-2">Praesent tincidunt neque id erat</p>
         </div>
 
-        <div className="center h-[70px] w-[70px] rounded-full bg-white">ic</div>
+        <div className="center h-[70px] w-[70px] rounded-full bg-white">
+          <Icons.ArrowRight className="w-[24px] h-fit text-red" />
+        </div>
       </div>
     </div>
   );
@@ -21,9 +26,12 @@ const About = () => {
   return (
     <>
       <div className="px-global bg-gray-bg">
-        <div className="max-w-global relative mx-auto mb-[40px] h-[360px] w-full bg-white sm:mb-[84px]">
-          <div className="absolute top-[-82px] h-[373px] w-full justify-center px-[48px] mx-auto flex">
-            <div className="ml-[10px] w-full max-w-[1284px] h-full flex flex-row gap-x-[30px] overflow-x-auto mx-aut">
+        <div
+          className="max-w-global relative mx-auto mb-[40px] h-[360px] w-full bg-white sm:mb-[84px]"
+          style={{ boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.02)' }}
+        >
+          <div className="absolute top-[-72px] h-[373px] w-full justify-center px-2 md:px-[48px] mx-auto flex">
+            <div className="ml-[10px] w-full max-w-[1284px] h-full flex flex-row gap-x-[30px] overflow-x-auto mx-auto pb-4">
               {Array(3)
                 .fill(null)
                 .map((_, i) => (
@@ -52,7 +60,7 @@ const About = () => {
           </div>
 
           <div className="flex flex-col justify-center p-6 md:p-0">
-            <p className="subgeading mb-1 text-red">About CORHA</p>
+            <p className="subheading mb-1 text-red">About CORHA</p>
             <h2 className="mb-[35px] max-w-[433px] text-dark-text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
@@ -66,10 +74,7 @@ const About = () => {
               people, thereby contributing to national development.
             </p>
             <div>
-              <button className="btn">
-                Learn More
-                <span className="ml-[10px]">ic</span>
-              </button>
+              <ArrowedButton label="Learn More" onClick={() => {}} />
             </div>
           </div>
         </div>

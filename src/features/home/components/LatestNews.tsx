@@ -1,31 +1,6 @@
+import BlogCard from '../../blog/components/BlogCard';
+
 const LatestNews = () => {
-  const BlogCard = () => (
-    <article
-      className="w-[430px] flex flex-col  rounded-[24px] sm:rounded-[32px] flex-shrink-0 bg-white"
-      style={{ boxShadow: '0px 1px 6px 4px rgba(0, 0, 0, 0.05)' }}
-    >
-      <div
-        className="h-[337px] w-full bg-cover rounded-[24px] sm:rounded-[32px]"
-        style={{ backgroundImage: 'url("/imgs/home/talk.jpeg")' }}
-      ></div>
-      <div className="py-[22px] sm:py-[32px] px-[18px] sm:px-[27px] flex flex-col">
-        <h3 className="mb-2 text-dark-text">
-          Lorem ipsum dolor sit amet, consectetur
-        </h3>
-        <p className="body1 text-light-text mb-[18px] sm:mb-[24px]">
-          Maecenas suscipit in nulla tristique pretium. Praesent eget tellus
-          nibh. Praesent mi orci, fringilla sed est ac, efficitur auctor velit.
-          Fusc
-        </p>
-
-        <div className="flex items-center">
-          <span className="mr-[10px]">ic</span>
-          <p className="subtitle text-light-text">12 July, 2022</p>
-        </div>
-      </div>
-    </article>
-  );
-
   return (
     <>
       <section className="px-global bg-white">
@@ -47,7 +22,15 @@ const LatestNews = () => {
               {Array(4)
                 .fill(null)
                 .map((_, i) => (
-                  <BlogCard key={`blog-card-${i}`} />
+                  <BlogCard
+                    key={`blog-card-${i}`}
+                    title="Lorem ipsum dolor sit amet, consectetur"
+                    description="Maecenas suscipit in nulla tristique pretium. Praesent eget tellus nibh.
+                  Praesent mi orci, fringilla sed est ac, efficitur auctor velit. Fusc"
+                    tag="contraception"
+                    date="12 July, 2022"
+                    imgUrl="/imgs/home/talk.jpeg"
+                  />
                 ))}
             </div>
           </div>
