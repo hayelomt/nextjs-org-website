@@ -1,4 +1,4 @@
-import Layout from '../../core/ut/layout/Layout';
+import Layout from '../../core/ui/layout/Layout';
 import BlogAndNewsHeading from './components/BlogAndNewsHeading';
 
 const BlogsPage = () => {

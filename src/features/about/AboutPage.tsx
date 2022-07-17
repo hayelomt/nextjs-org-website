@@ -1,4 +1,4 @@
-import Layout from '../../core/ut/layout/Layout';
+import Layout from '../../core/ui/layout/Layout';
 import AboutHeading from './components/AboutHeading';
 import AboutOthersSay from './components/AboutOthersSay';
 import AboutTeam from './components/AboutTeam';
