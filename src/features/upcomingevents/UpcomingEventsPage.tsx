@@ -1,14 +1,19 @@
+import { ArrowedButton } from '../../core/ui/shared/buttons';
+import { TextHeading } from '../../core/ui/shared/hading';
+import Icons from '../../core/ui/utils/icons';
+
 const UpcomingEventsPage = () => {
   return (
     <>
-      <div className="px-global w-full pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px] bg-[#F5F5F5]">
-        <div className="max-w-global mx-auto flex flex-col items-center">
+      <TextHeading
+        title={
           <h1 className="mb-3">
             Upcoming <strong className="text-red">Events</strong>
           </h1>
-          <span>bread crimmbs</span>
-          <div className="mt-[20px] mb-[20px] max-w-[736px] sm:mt-[32px] sm:mb-[40px]">
-            <p className="body1 text-center text-light-text">
+        }
+        description={
+          <div className="mt-[20px] mb-[40px] max-w-[736px] sm:mt-[32px] sm:mb-[96px]">
+            <p className="body1 text-center text-dark-text">
               Maecenas suscipit in nulla tristique pretium. Praesent eget tellus
               nibh. Praesent mi orci, fringilla sed est ac, efficitur auctor
               velit. Fusce fermentum feugiat lacinia. Maecenas eleifend bibendum
@@ -16,13 +21,20 @@ const UpcomingEventsPage = () => {
               gravida sed ante. Nam ut cursus m
             </p>
           </div>
+        }
+        crumbLinks={['Home', 'Events']}
+      />
 
+      <div className="px-global w-full pb-[60px] sm:pb-[136px] bg-white">
+        <div className="max-w-global mx-auto flex flex-col items-center">
           <div className="w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-[23px]">
               <div className="pt-[20px] sm:pt-[46px] pb-[30px] sm:pb-[60px] px-[30px] xm:px-[55px] w-full flex flex-row bg-gray-800 bg-opacity-80 rounded-[24px]">
                 <div className="w-full flex flex-col text-white">
                   <div className="flex items-center mb-2">
-                    <span className="mr-[11px]">ic</span>
+                    <span className="mr-[11px]">
+                      <Icons.Calendar className="h-4 w-4 text-red" />
+                    </span>
                     <p className="subtitle">14 August, 2022</p>
                   </div>
                   <h3 className="mb-2">Fund Raising Event For Children</h3>
@@ -32,10 +44,7 @@ const UpcomingEventsPage = () => {
                   </p>
                 </div>
                 <div>
-                  <button className="btn max-w-[130px] flex-shrink-0">
-                    Join Event
-                    <span className="ml-[10px]">ic</span>
-                  </button>
+                  <ArrowedButton label="Join Event" onClick={() => {}} />
                 </div>
               </div>
               <div
@@ -44,7 +53,9 @@ const UpcomingEventsPage = () => {
               >
                 <div className="w-full flex flex-col ">
                   <div className="flex items-center mb-2">
-                    <span className="mr-[11px]">ic</span>
+                    <span className="mr-[11px]">
+                      <Icons.Calendar className="h-4 w-4 text-red" />
+                    </span>
                     <p className="subtitle text-light-text">14 August, 2022</p>
                   </div>
                   <h3 className="mb-2 text-dark-text">

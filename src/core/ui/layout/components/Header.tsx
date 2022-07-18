@@ -165,7 +165,7 @@ const Header = () => {
                 url="/our-projects"
                 active={router.pathname === '/projects'}
               />
-              <MobileLinkItem label="Events" url="/events" />
+              <MobileLinkItem label="Events" url="/upcoming-events" />
               <MobileDropLink
                 label="Resources"
                 subLinks={
@@ -257,7 +257,7 @@ const Header = () => {
             url="/projects"
             active={router.pathname === '/projects'}
           />
-          <LinkItem label="Events" url="/events" />
+          <LinkItem label="Events" url="/upcoming-events" />
           <LinkDropItem label="Resource" active={false}>
             <>
               <LinkItem label="Team" url="/team" />
