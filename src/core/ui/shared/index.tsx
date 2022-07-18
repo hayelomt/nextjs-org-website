@@ -1,6 +1,13 @@
+import clsx from 'clsx';
 import Icons from '../utils/icons';
 
-const BreadCrumbs = ({ links }: { links: string[] }) => (
+const BreadCrumbs = ({
+  links,
+  linkColor = 'text-white',
+}: {
+  links: string[];
+  linkColor?: string;
+}) => (
   <>
     <div className="flex items-center">
       {links.map((link, i) =>
@@ -10,9 +17,9 @@ const BreadCrumbs = ({ links }: { links: string[] }) => (
           </p>
         ) : (
           <div className="flex" key={`crumb-${i}`}>
-            <p className="body1 mr-[14px] text-white">{link}</p>
+            <p className={clsx('body1 mr-[14px]', linkColor)}>{link}</p>
             <span className=" mt-[2px]">
-              <Icons.ChevronRight className="h-4 w-4 mr-[14px] text-white" />
+              <Icons.ChevronRight className="h-4 w-4 mr-[14px]" />
             </span>
           </div>
         )

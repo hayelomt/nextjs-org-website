@@ -36,4 +36,26 @@ const ImageHeading = ({
   </section>
 );
 
-export { ImageHeading };
+const TextHeading = ({
+  crumbLinks,
+  title,
+  description,
+}: {
+  crumbLinks: string[];
+  title: ReactElement;
+  description?: ReactElement;
+}) => (
+  <section className="px-global w-full pt-[35px] sm:pt-[72px] bg-white">
+    <div className="max-w-global mx-auto flex flex-col items-center">
+      {title}
+      {crumbLinks.length && (
+        <span className="mt-3">
+          <BreadCrumbs links={crumbLinks} linkColor="text-dark-text" />
+        </span>
+      )}
+      {description && description}
+    </div>
+  </section>
+);
+
+export { ImageHeading, TextHeading };

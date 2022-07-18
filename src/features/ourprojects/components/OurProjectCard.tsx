@@ -1,3 +1,5 @@
+import { ArrowedButton } from '../../../core/ui/shared/buttons';
+
 const OurProjectCard = () => {
   return (
     <>
@@ -19,10 +21,7 @@ const OurProjectCard = () => {
             nibh. Praesent
           </p>
           <div>
-            <button className="btn">
-              Learn More
-              <span className="ml-[10px]">ic</span>
-            </button>
+            <ArrowedButton label="Learn More" onClick={() => {}} />
           </div>
         </div>
       </div>

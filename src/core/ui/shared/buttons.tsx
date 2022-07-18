@@ -31,4 +31,24 @@ const ArrowedButton = ({
   </button>
 );
 
-export { ArrowedButton };
+const PaginationButtons = () => (
+  <div className="w-full center gap-x-[14px] max-w-full overflow-x-auto">
+    <button className="bg-dark-blue w-[40px] h-[40px] rounded-[12px] center text-white font-barlow ">
+      &#60;&#60;
+    </button>
+    <button className="bg-dark-blue w-[40px] h-[40px] rounded-[12px] center text-white">
+      1
+    </button>
+    <button className="bg-red w-[40px] h-[40px] rounded-[12px] center text-white">
+      2
+    </button>
+    <button className="bg-dark-blue w-[40px] h-[40px] rounded-[12px] center text-white">
+      3
+    </button>
+    <button className="bg-dark-blue w-[40px] h-[40px] rounded-[12px] center text-white">
+      &#62;&#62;
+    </button>
+  </div>
+);
+
+export { ArrowedButton, PaginationButtons };
