@@ -18,7 +18,7 @@ const Header = () => {
     subLinks: ReactElement;
     active?: boolean;
   }) => {
-    const [showSubLinks, setShowSubLinks] = useState(false);
+    const [showSubLinks, setShowSubLinks] = useState(active);
 
     return (
       <div className="flex flex-col items-center group transition-all duration-500">
@@ -38,9 +38,10 @@ const Header = () => {
           </span>
         </div>
         <div
-          className={clsx('bg-blue-400 flex-col', [
-            showSubLinks ? 'flex' : 'hidden',
-          ])}
+          className={clsx(
+            ' ml-8 pl-2 mt-2 text-[0.9em] flex-col border-l border-dark-text gap-y-2',
+            [showSubLinks ? 'flex' : 'hidden']
+          )}
         >
           {subLinks}
         </div>
@@ -172,11 +173,19 @@ const Header = () => {
               />
               <MobileDropLink
                 label="Resources"
+                active={router.pathname.startsWith('/resources')}
                 subLinks={
                   <>
-                    <p className="text-[24px]">Us</p>
-                    <p className="text-[24px]">them</p>
-                    <p className="text-[24px]">we</p>
+                    <MobileLinkItem
+                      label="Gallery"
+                      url="/resources/galleries"
+                      active={router.pathname === '/resources/galleries'}
+                    />
+                    <MobileLinkItem
+                      label="Publications"
+                      url="/resources/publications"
+                      active={router.pathname === '/resources/publications'}
+                    />
                   </>
                 }
               />
@@ -266,10 +275,21 @@ const Header = () => {
             url="/upcoming-events"
             active={router.pathname === '/upcoming-events'}
           />
-          <LinkDropItem label="Resource" active={false}>
+          <LinkDropItem
+            label="Resources"
+            active={router.pathname.startsWith('/resources')}
+          >
             <>
-              <LinkItem label="Team" url="/team" />
-              <LinkItem label="Projects" url="/projects" />
+              <LinkItem
+                label="Gallery"
+                url="/resources/galleries"
+                active={router.pathname === '/resources/galleries'}
+              />
+              <LinkItem
+                label="Publication"
+                url="/resources/publications"
+                active={router.pathname === '/resources/publications'}
+              />
             </>
           </LinkDropItem>
           <LinkItem label="Contact" url="/contact-us" />
