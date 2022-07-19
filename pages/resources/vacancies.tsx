@@ -1,4 +1,4 @@
-import VacancyPage from '../src/features/vacancy/VacancyPage';
+import VacancyPage from '../../src/features/vacancy/VacancyPage';
 
 const Vacancies = () => {
   return <VacancyPage />;

@@ -155,6 +155,11 @@ const Header = () => {
                       url="/about"
                       active={router.pathname === '/about'}
                     />
+                    <MobileLinkItem
+                      label="Gallery"
+                      url="/resources/galleries"
+                      active={router.pathname === '/resources/galleries'}
+                    />
                   </>
                 }
               />
@@ -179,14 +184,14 @@ const Header = () => {
                 subLinks={
                   <>
                     <MobileLinkItem
-                      label="Gallery"
-                      url="/resources/galleries"
-                      active={router.pathname === '/resources/galleries'}
-                    />
-                    <MobileLinkItem
                       label="Publications"
                       url="/resources/publications"
                       active={router.pathname === '/resources/publications'}
+                    />
+                    <MobileLinkItem
+                      label="Vacancies"
+                      url="/resources/vacancies"
+                      active={router.pathname === '/resources/vacancies'}
                     />
                     <MobileLinkItem
                       label="Videos"
@@ -272,6 +277,11 @@ const Header = () => {
                 url="/about"
                 active={router.pathname === '/about'}
               />
+              <LinkItem
+                label="Gallery"
+                url="/resources/galleries"
+                active={router.pathname === '/resources/galleries'}
+              />
             </>
           </LinkDropItem>
           <LinkItem
@@ -295,14 +305,14 @@ const Header = () => {
           >
             <>
               <LinkItem
-                label="Gallery"
-                url="/resources/galleries"
-                active={router.pathname === '/resources/galleries'}
-              />
-              <LinkItem
                 label="Publication"
                 url="/resources/publications"
                 active={router.pathname === '/resources/publications'}
+              />
+              <LinkItem
+                label="Vacancies"
+                url="/resources/vacancies"
+                active={router.pathname === '/resources/vacancies'}
               />
               <LinkItem
                 label="Videos"
