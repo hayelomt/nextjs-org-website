@@ -194,7 +194,11 @@ const Header = () => {
                   </>
                 }
               />
-              <MobileLinkItem label="Contact" url="/contact-us" />
+              <MobileLinkItem
+                label="Contact"
+                url="/contact-us"
+                active={router.pathname === '/contact-us'}
+              />
               <button className="btn">Donate Now</button>
               <div className="flex bg-brand px-6 py-2 gap-x-4 rounded-[20px]">
                 <div className="flex gap-x-4">
@@ -302,7 +306,11 @@ const Header = () => {
               />
             </>
           </LinkDropItem>
-          <LinkItem label="Contact" url="/contact-us" />
+          <LinkItem
+            label="Contact"
+            url="/contact-us"
+            active={router.pathname === '/contact-us'}
+          />
         </div>
 
         <div>
