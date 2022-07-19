@@ -1,4 +1,4 @@
-import GalleryPage from '../src/features/gallery/GalleryPage';
+import GalleryPage from '../../src/features/gallery/GalleryPage';
 
 const Galleries = () => {
   return <GalleryPage />;
