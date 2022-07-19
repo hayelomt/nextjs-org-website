@@ -1,4 +1,4 @@
-import TenderPage from '../src/features/tender/TenderPage';
+import TenderPage from '../../src/features/tender/TenderPage';
 
 const Tenders = () => {
   return <TenderPage />;

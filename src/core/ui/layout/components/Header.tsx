@@ -189,6 +189,11 @@ const Header = () => {
                       active={router.pathname === '/resources/publications'}
                     />
                     <MobileLinkItem
+                      label="Tenders"
+                      url="/resources/tenders"
+                      active={router.pathname === '/resources/tenders'}
+                    />
+                    <MobileLinkItem
                       label="Vacancies"
                       url="/resources/vacancies"
                       active={router.pathname === '/resources/vacancies'}
@@ -308,6 +313,11 @@ const Header = () => {
                 label="Publication"
                 url="/resources/publications"
                 active={router.pathname === '/resources/publications'}
+              />
+              <LinkItem
+                label="Tenders"
+                url="/resources/tenders"
+                active={router.pathname === '/resources/tenders'}
               />
               <LinkItem
                 label="Vacancies"
