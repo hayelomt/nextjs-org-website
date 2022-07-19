@@ -26,7 +26,7 @@ const BlogsPage = () => {
 
         <div className="px-global w-full pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px]">
           <div className="max-w-global mx-auto flex flex-col items-center">
-            <div className="xs:w-fit grid w-full grid-cols-1 place-items-center gap-[25px] sm:grid-cols-2 sm:gap-[35px] xl:grid-cols-3 xl:gap-[45px] mb-[25px] sm:mb-[50px]">
+            <div className="xs:w-fit grid w-full grid-cols-1 place-items-center gap-[25px] lg:grid-cols-2 lg:gap-[35px] xl:grid-cols-3 xl:gap-[45px] mb-[25px] sm:mb-[50px]">
               {Array(10)
                 .fill(null)
                 .map((_, i) => (
