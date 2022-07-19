@@ -150,9 +150,11 @@ const Header = () => {
                 active={router.pathname.startsWith('/about')}
                 subLinks={
                   <>
-                    <p className="text-[24px]">Us</p>
-                    <p className="text-[24px]">them</p>
-                    <p className="text-[24px]">we</p>
+                    <MobileLinkItem
+                      label="About Us"
+                      url="/about"
+                      active={router.pathname === '/about'}
+                    />
                   </>
                 }
               />
@@ -265,8 +267,11 @@ const Header = () => {
             active={router.pathname.startsWith('/about')}
           >
             <>
-              <LinkItem label="Team" url="/team" />
-              <LinkItem label="Projects" url="/projects" />
+              <LinkItem
+                label="About Us"
+                url="/about"
+                active={router.pathname === '/about'}
+              />
             </>
           </LinkDropItem>
           <LinkItem
