@@ -240,6 +240,32 @@ const Quote = () => (
   </svg>
 );
 
+const YoutubeRed = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="59"
+    height="42"
+    fill="none"
+    viewBox="0 0 59 42"
+  >
+    <g clipPath="url(#clip0_176_1157)">
+      <path
+        fill="red"
+        d="M57.69 6.47a7.416 7.416 0 00-5.22-5.222C47.892 0 29.47 0 29.47 0S11.044.038 6.466 1.286a7.415 7.415 0 00-5.22 5.221c-1.385 8.134-1.922 20.527.038 28.335a7.415 7.415 0 005.22 5.221c4.578 1.248 23.002 1.248 23.002 1.248s18.423 0 23-1.248a7.415 7.415 0 005.221-5.22c1.46-8.146 1.91-20.531-.037-28.374z"
+      ></path>
+      <path
+        fill="#fff"
+        d="M23.606 29.508l15.284-8.852-15.284-8.853v17.705z"
+      ></path>
+    </g>
+    <defs>
+      <clipPath id="clip0_176_1157">
+        <path fill="#fff" d="M0 0H59V41.476H0z"></path>
+      </clipPath>
+    </defs>
+  </svg>
+);
+
 const Icons = {
   ArrowRight,
   Calendar,
@@ -255,6 +281,7 @@ const Icons = {
   Support,
   Twitter,
   Youtube,
+  YoutubeRed,
   Volunteer,
 };
 

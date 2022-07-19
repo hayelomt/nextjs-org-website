@@ -186,6 +186,11 @@ const Header = () => {
                       url="/resources/publications"
                       active={router.pathname === '/resources/publications'}
                     />
+                    <MobileLinkItem
+                      label="Videos"
+                      url="/resources/videos"
+                      active={router.pathname === '/resources/videos'}
+                    />
                   </>
                 }
               />
@@ -289,6 +294,11 @@ const Header = () => {
                 label="Publication"
                 url="/resources/publications"
                 active={router.pathname === '/resources/publications'}
+              />
+              <LinkItem
+                label="Videos"
+                url="/resources/videos"
+                active={router.pathname === '/resources/videos'}
               />
             </>
           </LinkDropItem>
