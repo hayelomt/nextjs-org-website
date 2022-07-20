@@ -1,8 +1,11 @@
 import Layout from '../../core/ui/layout/Layout';
 import { TextHeading } from '../../core/ui/shared/hading';
+import { buildPattern } from '../../core/utils/global.utils';
 import UpcomingEventCard from './components/UpcomingEventCard';
 
 const UpcomingEventsPage = () => {
+  const patterns = buildPattern(6);
+
   return (
     <>
       <Layout>
@@ -40,7 +43,7 @@ const UpcomingEventsPage = () => {
                       description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                semper arcu mauris, eget iaculis sem scelerisque eu"
                       imgUrl="/imgs/blog/heading.jpeg"
-                      type={i % 2 === 0 ? 'image' : 'plain'}
+                      type={patterns[i] === 0 ? 'image' : 'plain'}
                     />
                   ))}
               </div>
