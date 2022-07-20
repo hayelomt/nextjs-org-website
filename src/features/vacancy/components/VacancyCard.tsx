@@ -1,3 +1,5 @@
+import Icons from '../../../core/ui/utils/icons';
+
 type VacancyProps = {
   title: string;
   description: string;
@@ -28,21 +30,27 @@ const VacancyCard = ({
       <div className="flex flex-col xs:flex-row items-start xs:items-end gap-x-2 gap-y-2 xs:gap-y-0">
         <div className="flex flex-col w-full gap-y-2 sm:gap-y-3">
           <div className="flex items-center">
-            <span className="mr-2 sm:mr-4 ">ic</span>
+            <span className="mr-2 sm:mr-4 ">
+              <Icons.Deadline />
+            </span>
             <p className="body1 uppercase text-dark-text font-semibold mr-[20px] sm:mr-[32px]">
               DEADLINE
             </p>
             <p className="body1">{deadline}</p>
           </div>
           <div className="flex items-center">
-            <span className="mr-2 sm:mr-4 ">ic</span>
+            <span className="mr-2 sm:mr-4 ">
+              <Icons.Experience />
+            </span>
             <p className="body1 uppercase text-dark-text font-semibold mr-[20px] sm:mr-[32px]">
               MINIMUM EXPERIENCE
             </p>
             <p className="body1">{minExperience}</p>
           </div>
           <div className="flex items-center">
-            <span className="mr-2 sm:mr-4 ">ic</span>
+            <span className="mr-2 sm:mr-4 ">
+              <Icons.Positions />
+            </span>
             <p className="body1 uppercase text-dark-text font-semibold mr-[20px] sm:mr-[32px]">
               AVAILABLE POSITIONS
             </p>
@@ -67,23 +75,29 @@ const VacancyCard = ({
       <div className="flex flex-col xs:flex-row items-start xs:items-end gap-x-2 gap-y-2 xs:gap-y-0">
         <div className="flex flex-col w-full gap-y-2 sm:gap-y-3">
           <div className="flex items-center">
-            <span className="mr-2 sm:mr-4 ">ic</span>
+            <span className="mr-2 sm:mr-4 ">
+              <Icons.Deadline />
+            </span>
             <p className="body1 uppercase text-white font-semibold mr-[20px] sm:mr-[32px]">
               DEADLINE
             </p>
             <p className="body1">{deadline}</p>
           </div>
           <div className="flex items-center">
-            <span className="mr-2 sm:mr-4 ">ic</span>
+            <span className="mr-2 sm:mr-4 ">
+              <Icons.Experience />
+            </span>
             <p className="body1 uppercase text-white font-semibold mr-[20px] sm:mr-[32px]">
               MINIMUM EXPERIENCE
             </p>
             <p className="body1">{minExperience}</p>
           </div>
           <div className="flex items-center">
-            <span className="mr-2 sm:mr-4 ">ic</span>
+            <span className="mr-2 sm:mr-4 ">
+              <Icons.Positions />
+            </span>
             <p className="body1 uppercase text-white font-semibold mr-[20px] sm:mr-[32px]">
-              AVAILABLE POSITIONS{' '}
+              AVAILABLE POSITIONS
             </p>
             <p className="body1">{positions}</p>
           </div>

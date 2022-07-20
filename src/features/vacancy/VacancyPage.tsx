@@ -1,8 +1,11 @@
 import Layout from '../../core/ui/layout/Layout';
 import { TextHeading } from '../../core/ui/shared/hading';
+import { buildPattern } from '../../core/utils/global.utils';
 import VacancyCard from './components/VacancyCard';
 
 const VacancyPage = () => {
+  const patterns = buildPattern(6);
+
   return (
     <>
       <Layout>
@@ -34,15 +37,14 @@ const VacancyPage = () => {
                 .map((_, i) => (
                   <VacancyCard
                     title="Accountant"
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-        ut enim vitae nisl cursus feugiat. Praesent condimentum velit
+                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut enim vitae nisl cursus feugiat. Praesent condimentum velit
         vitae porta luctus. In hac habitasse platea dictumst. In lacus
         lacus, gravida vel lacus et, tristique faucibus dolor."
                     deadline="12 Aug 2014"
                     minExperience="4+ Years"
                     positions="2"
                     key={`vacancy-${i}`}
-                    type={i % 2 === 0 ? 'plain' : 'brand'}
+                    type={patterns[i] === 0 ? 'plain' : 'brand'}
                   />
                 ))}
             </div>
