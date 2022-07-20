@@ -1,3 +1,5 @@
+import Icons from '../../../core/ui/utils/icons';
+
 type TenderProps = {
   title: string;
   description: string;
@@ -17,7 +19,9 @@ const TenderCard = ({ title, description, deadline, type }: TenderProps) => {
       </p>
 
       <div className="mb-[10px] flex items-center sm:mb-[14px]">
-        <span className="mr-2 sm:mr-4">ic</span>
+        <span className="mr-2 sm:mr-4">
+          <Icons.Deadline />
+        </span>
         <p className="body1 mr-[20px] uppercase text-dark-text sm:mr-[32px]">
           DEADLINE
         </p>
@@ -38,7 +42,9 @@ const TenderCard = ({ title, description, deadline, type }: TenderProps) => {
       <p className="body1 mb-[12px] text-gray-bg sm:mb-[20px]">{description}</p>
 
       <div className="mb-[10px] flex items-center sm:mb-[14px]">
-        <span className="mr-2 sm:mr-4">ic</span>
+        <span className="mr-2 sm:mr-4">
+          <Icons.Deadline />
+        </span>
         <p className="body1 mr-[20px] uppercase text-white sm:mr-[32px]">
           DEADLINE
         </p>

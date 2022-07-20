@@ -1,8 +1,11 @@
 import Layout from '../../core/ui/layout/Layout';
 import { TextHeading } from '../../core/ui/shared/hading';
+import { buildPattern } from '../../core/utils/global.utils';
 import TenderCard from './components/TenderCard';
 
 const TenderPage = () => {
+  const patterns = buildPattern(6);
+
   return (
     <>
       <Layout>
@@ -36,7 +39,7 @@ const TenderPage = () => {
                 vitae porta luctus. In hac habitasse platea dictumst. In lacus
                 lacus, gravida vel lacus et, tristique faucibus dolor."
                     deadline="21 Aug, 2022"
-                    type={i % 2 === 0 ? 'plain' : 'brand'}
+                    type={patterns[i] === 0 ? 'plain' : 'brand'}
                   />
                 ))}
             </div>
