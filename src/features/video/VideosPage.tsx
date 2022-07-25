@@ -1,6 +1,6 @@
 import Layout from '../../core/ui/layout/Layout';
 import { PaginationButtons } from '../../core/ui/shared/buttons';
-import { ImageHeading } from '../../core/ui/shared/hading';
+import { ImageHeading } from '../../core/ui/shared/heading';
 import VideoCard from './components/VideoCard';
 
 const VideosPage = () => {

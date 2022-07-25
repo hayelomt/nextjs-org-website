@@ -1,6 +1,6 @@
 import Layout from '../../core/ui/layout/Layout';
 import { PaginationButtons } from '../../core/ui/shared/buttons';
-import { TextHeading } from '../../core/ui/shared/hading';
+import { TextHeading } from '../../core/ui/shared/heading';
 import OurProjectCard from './components/OurProjectCard';
 
 const OurProjectPage = () => {

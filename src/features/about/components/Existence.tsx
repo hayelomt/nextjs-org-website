@@ -1,5 +1,18 @@
 import clsx from 'clsx';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+
+const existVariant = {
+  hidden: { x: '100vw' },
+  visible: {
+    x: 0,
+    transition: { duration: 0.2, type: 'spring', stiffness: 80, damping: 13 },
+  },
+  exit: {
+    x: '-100vw',
+    transition: { duration: 0.4 },
+  },
+};
 
 const Existence = () => {
   const [displayContent, setDisplayContent] = useState<
@@ -82,39 +95,52 @@ const Existence = () => {
                 label="Our Goals"
               />
             </div>
-            {displayContent === 'mission' && (
-              <>
-                <h3 className="mb-3">Mission ipsum dolor sante</h3>
-                <p className="body1 text-light-text">
-                  Maecenas suscipit in nulla tristique pretium. Praesent eget
-                  tellus nibh. Praesent mi orci, fringilla sed est ac, efficitur
-                  auctor velit. Fusce fermentum feugiat lacinia. Maecenas
-                  eleifend bibendum tellus ac pretium.
-                </p>
-              </>
-            )}
-            {displayContent === 'vision' && (
-              <>
-                <h3 className="mb-3">Vision ipsum dolor sante</h3>
-                <p className="body1 text-light-text">
-                  Maecenas suscipit in nulla tristique pretium. Praesent eget
-                  tellus nibh. Praesent mi orci, fringilla sed est ac, efficitur
-                  auctor velit. Fusce fermentum feugiat lacinia. Maecenas
-                  eleifend bibendum tellus ac pretium.
-                </p>
-              </>
-            )}
-            {displayContent === 'goal' && (
-              <>
-                <h3 className="mb-3">Goal ipsum dolor sante</h3>
-                <p className="body1 text-light-text">
-                  Maecenas suscipit in nulla tristique pretium. Praesent eget
-                  tellus nibh. Praesent mi orci, fringilla sed est ac, efficitur
-                  auctor velit. Fusce fermentum feugiat lacinia. Maecenas
-                  eleifend bibendum tellus ac pretium.
-                </p>
-              </>
-            )}
+            <AnimatePresence exitBeforeEnter>
+              <motion.div
+                key={displayContent}
+                variants={existVariant}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                {displayContent === 'mission' && (
+                  <>
+                    <div className="">
+                      <h3 className="mb-3">Mission ipsum dolor sante</h3>
+                      <p className="body1 text-light-text">
+                        Maecenas suscipit in nulla tristique pretium. Praesent
+                        eget tellus nibh. Praesent mi orci, fringilla sed est
+                        ac, efficitur auctor velit. Fusce fermentum feugiat
+                        lacinia. Maecenas eleifend bibendum tellus ac pretium.
+                      </p>
+                    </div>
+                  </>
+                )}
+
+                {displayContent === 'vision' && (
+                  <div className="">
+                    <h3 className="mb-3">Vision ipsum dolor sante</h3>
+                    <p className="body1 text-light-text">
+                      Maecenas suscipit in nulla tristique pretium. Praesent
+                      eget tellus nibh. Praesent mi orci, fringilla sed est ac,
+                      efficitur auctor velit. Fusce fermentum feugiat lacinia.
+                      Maecenas eleifend bibendum tellus ac pretium.
+                    </p>
+                  </div>
+                )}
+                {displayContent === 'goal' && (
+                  <>
+                    <h3 className="mb-3">Goal ipsum dolor sante</h3>
+                    <p className="body1 text-light-text">
+                      Maecenas suscipit in nulla tristique pretium. Praesent
+                      eget tellus nibh. Praesent mi orci, fringilla sed est ac,
+                      efficitur auctor velit. Fusce fermentum feugiat lacinia.
+                      Maecenas eleifend bibendum tellus ac pretium.
+                    </p>
+                  </>
+                )}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </section>

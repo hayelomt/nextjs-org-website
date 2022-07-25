@@ -3,8 +3,26 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body,
+  .main-container,
+  div#__next {
+    height: 100%;
+  }
   body {
     font-family: karla;
+  }
+
+  .backdrop {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
   }
 }
 

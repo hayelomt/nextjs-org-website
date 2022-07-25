@@ -19,7 +19,7 @@ const BreadCrumbs = ({
           <div className="flex" key={`crumb-${i}`}>
             <p className={clsx('body1 mr-[14px]', linkColor)}>{link}</p>
             <span className=" mt-[2px]">
-              <Icons.ChevronRight className="h-4 w-4 mr-[14px]" />
+              <Icons.ChevronRight className="h-4 w-4 mr-[14px] text-white" />
             </span>
           </div>
         )

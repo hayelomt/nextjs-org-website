@@ -1,5 +1,5 @@
 import Layout from '../../core/ui/layout/Layout';
-import { ImageHeading } from '../../core/ui/shared/hading';
+import { ImageHeading } from '../../core/ui/shared/heading';
 import Icons from '../../core/ui/utils/icons';
 
 const ContactUsPage = () => {

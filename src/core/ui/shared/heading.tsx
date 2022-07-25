@@ -1,5 +1,32 @@
+import { motion } from 'framer-motion';
 import { ReactElement } from 'react';
 import { BreadCrumbs } from '.';
+
+const sectionVariant = {
+  hidden: {
+    // opacity: 0
+  },
+  visible: {
+    // opacity: 1,
+    // transition: { duration: 0.2, when: 'beforeChildren' },
+  },
+};
+
+const titleVariant = {
+  hidden: { x: '-100vw' },
+  visible: {
+    x: 0,
+    transition: { duration: 0.5, type: 'spring', stiffness: 80, damping: 14 },
+  },
+};
+
+const descriptionVariant = {
+  hidden: { x: '100vw' },
+  visible: {
+    x: 0,
+    transition: { duration: 0.5, type: 'spring', stiffness: 80, damping: 14 },
+  },
+};
 
 const ImageHeading = ({
   imgUrl,
@@ -12,10 +39,13 @@ const ImageHeading = ({
   title: ReactElement;
   description?: ReactElement;
 }) => (
-  <section
+  <motion.section
+    variants={sectionVariant}
+    initial="hidden"
+    animate="visible"
     className="px-global pt-[60px] sm:pt-[127px] pb-[100px] md:pb-[203px]"
     style={{
-      background: `linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("${imgUrl}")`,
+      background: `linear-gradient(0deg, rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.685)), url("${imgUrl}")`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
@@ -23,17 +53,20 @@ const ImageHeading = ({
   >
     <div className="max-w-global mx-auto flex flex-col text-center items-center">
       <>
-        {title}
-        {crumbLinks.length && (
-          <span className="mt-3">
-            <BreadCrumbs links={crumbLinks} />
-          </span>
-        )}
+        <motion.div variants={titleVariant}>{title}</motion.div>
 
-        {description && description}
+        <motion.div variants={descriptionVariant}>
+          {crumbLinks.length && (
+            <span className="mt-3">
+              <BreadCrumbs links={crumbLinks} />
+            </span>
+          )}
+
+          {description && description}
+        </motion.div>
       </>
     </div>
-  </section>
+  </motion.section>
 );
 
 const TextHeading = ({

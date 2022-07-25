@@ -1,6 +1,6 @@
 import Layout from '../../core/ui/layout/Layout';
 import { PaginationButtons } from '../../core/ui/shared/buttons';
-import { ImageHeading } from '../../core/ui/shared/hading';
+import { ImageHeading } from '../../core/ui/shared/heading';
 import BlogCard from '../blog/components/BlogCard';
 
 const PublicationPage = () => {

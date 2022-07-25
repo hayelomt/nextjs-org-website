@@ -5,49 +5,8 @@ import { ReactElement, useState } from 'react';
 import { ArrowedButton } from '../../shared/buttons';
 import Icons from '../../utils/icons';
 
-const Header = () => {
-  const [showMenu, setShowMenu] = useState(false);
+const Header = ({ setShowMenu }: { setShowMenu: (show: boolean) => void }) => {
   const router = useRouter();
-
-  const MobileDropLink = ({
-    label,
-    subLinks,
-    active = false,
-  }: {
-    label: string;
-    subLinks: ReactElement;
-    active?: boolean;
-  }) => {
-    const [showSubLinks, setShowSubLinks] = useState(active);
-
-    return (
-      <div className="flex flex-col items-center group transition-all duration-500">
-        <div
-          className="flex items-center"
-          onClick={() => setShowSubLinks(!showSubLinks)}
-        >
-          <h3 className={clsx([active ? 'active-link' : 'inactive-link'])}>
-            {label}
-          </h3>
-          <span
-            className={clsx('ml-1 mt-1 transition-transform duration-200', [
-              showSubLinks ? 'transform rotate-90' : 'transform rotate-0',
-            ])}
-          >
-            <Icons.ChevronRight />
-          </span>
-        </div>
-        <div
-          className={clsx(
-            ' ml-8 pl-2 mt-2 text-[0.9em] flex-col border-l border-dark-text gap-y-2',
-            [showSubLinks ? 'flex' : 'hidden']
-          )}
-        >
-          {subLinks}
-        </div>
-      </div>
-    );
-  };
 
   const LinkItem = ({
     active = false,
@@ -101,142 +60,11 @@ const Header = () => {
     </div>
   );
 
-  const MobileLinkItem = ({
-    active = false,
-    label,
-    url,
-  }: {
-    label: string;
-    active?: boolean;
-    url: string;
-  }) => (
-    <Link href={url}>
-      <h3>
-        <a
-          className={clsx(
-            'cursor-pointer hover:text-red hover:font-semibold transition duration-150',
-            [active ? 'active-link' : 'inactive-link']
-          )}
-        >
-          {label}
-        </a>
-      </h3>
-    </Link>
-  );
-
   const MobileMenu = () => (
     <>
       <div className="flex lg:hidden justify-end w-full pr-4">
         <button onClick={() => setShowMenu(true)}>
           <Icons.Menu />
-        </button>
-      </div>
-      <div
-        className={clsx(
-          'fixed top-0 bottom-0 left-0 right-0 h-full w-full lg:hidden bg-gray-200 bg-opacity-[.98] transition ease-in-out duration-300 origin-top text-link-text',
-          [showMenu ? 'opacity-100 z-10 ' : 'opacity-0 -z-10 ']
-        )}
-      >
-        <div className="relative w-full h-full">
-          <div className="relative flex h-full w-full flex-col items-center justify-center -translate-y-[6%]">
-            <div className="flex flex-col items-center gap-y-6">
-              <MobileLinkItem
-                label="Home"
-                url="/"
-                active={router.pathname === '/'}
-              />
-              <MobileDropLink
-                label="About"
-                active={router.pathname.startsWith('/about')}
-                subLinks={
-                  <>
-                    <MobileLinkItem
-                      label="About Us"
-                      url="/about"
-                      active={router.pathname === '/about'}
-                    />
-                    <MobileLinkItem
-                      label="Gallery"
-                      url="/resources/galleries"
-                      active={router.pathname === '/resources/galleries'}
-                    />
-                  </>
-                }
-              />
-              <MobileLinkItem
-                label="Blogs"
-                url="/blogs"
-                active={router.pathname === '/blogs'}
-              />
-              <MobileLinkItem
-                label="Projects"
-                url="/our-projects"
-                active={router.pathname === '/projects'}
-              />
-              <MobileLinkItem
-                label="Events"
-                url="/upcoming-events"
-                active={router.pathname === '/upcoming-events'}
-              />
-              <MobileDropLink
-                label="Resources"
-                active={router.pathname.startsWith('/resources')}
-                subLinks={
-                  <>
-                    <MobileLinkItem
-                      label="Publications"
-                      url="/resources/publications"
-                      active={router.pathname === '/resources/publications'}
-                    />
-                    <MobileLinkItem
-                      label="Tenders"
-                      url="/resources/tenders"
-                      active={router.pathname === '/resources/tenders'}
-                    />
-                    <MobileLinkItem
-                      label="Vacancies"
-                      url="/resources/vacancies"
-                      active={router.pathname === '/resources/vacancies'}
-                    />
-                    <MobileLinkItem
-                      label="Videos"
-                      url="/resources/videos"
-                      active={router.pathname === '/resources/videos'}
-                    />
-                  </>
-                }
-              />
-              <MobileLinkItem
-                label="Contact"
-                url="/contact-us"
-                active={router.pathname === '/contact-us'}
-              />
-              <button className="btn">Donate Now</button>
-              <div className="flex bg-brand px-6 py-2 gap-x-4 rounded-[20px]">
-                <div className="flex gap-x-4">
-                  <div className="h-[24px] w-[24px] rounded-full bg-brand">
-                    <Icons.Facebook />
-                  </div>
-                  <div className="h-[24px] w-[24px] rounded-full bg-brand">
-                    <Icons.Twitter />
-                  </div>
-                  <div className="h-[24px] w-[24px] rounded-full bg-brand">
-                    <Icons.LinkedIn />
-                  </div>
-                  <div className="h-[24px] w-[24px] rounded-full bg-brand">
-                    <Icons.Youtube />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button
-          onClick={() => setShowMenu(false)}
-          className="absolute right-[30px] top-[30px] z-10"
-        >
-          <Icons.CloseCircle className="w-10 h-10 cursor-pointer hover:text-red hover:shadow-xl rounded-full hover:scale-110 transition ease-in duration-200 " />
         </button>
       </div>
     </>

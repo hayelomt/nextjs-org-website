@@ -1,5 +1,5 @@
 import Layout from '../../core/ui/layout/Layout';
-import { TextHeading } from '../../core/ui/shared/hading';
+import { TextHeading } from '../../core/ui/shared/heading';
 import { buildPattern } from '../../core/utils/global.utils';
 import UpcomingEventCard from './components/UpcomingEventCard';
 
