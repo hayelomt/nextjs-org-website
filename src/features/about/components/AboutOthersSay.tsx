@@ -1,40 +1,10 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper';
 import { useEffect, useState } from 'react';
 import Icons from '../../../core/ui/utils/icons';
 import OtherSayCard from './OtherSayCard';
 
 const AboutOthersSay = () => {
-  const [sliceMax, setSliceMax] = useState(1);
-
-  const calculateSlice = (screenWidth: number) => {
-    let slice = 1;
-    if (screenWidth > 1300) {
-      slice = 3;
-    } else if (screenWidth > 900) {
-      slice = 2;
-    }
-
-    console.log(screenWidth, sliceMax, slice, slice !== sliceMax);
-
-    // if (slice !== sliceMax) {
-    setSliceMax(slice);
-    // }
-  };
-
-  useEffect(() => {
-    const listener = (e: UIEvent) => {
-      console.log('resized', window.screen.width);
-      calculateSlice(window.screen.width);
-    };
-    window.addEventListener('resize', listener);
-
-    // calculateSlice(window.screen.width);
-
-    return () => {
-      window.removeEventListener('resize', listener);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const cardArray = [
     <OtherSayCard
       imgUrl="/imgs/gallery/lens.png"
@@ -66,7 +36,6 @@ const AboutOthersSay = () => {
           <h2 className="mb-[20px] md:mb-[34px]">
             What <strong className="text-red">Others</strong> Say
           </h2>
-          <h3>Slices {sliceMax}</h3>
           <div className="mb-[50px] max-w-[690px] sm:mb-[111px]">
             <p className="text-light-text text-center">
               Maecenas suscipit in nulla tristique pretium. Praesent eget tellus
@@ -77,17 +46,40 @@ const AboutOthersSay = () => {
           </div>
 
           <div className="w-full">
-            <div className="max-w-global mx-auto flex w-full flex-row items-center text-center">
-              <span>
-                <Icons.ChevronRight className="rotate-180 text-light-text w-6 h-6" />
-              </span>
-              <div className="w-full flex justify-around items-center">
-                {cardArray.slice(0, sliceMax).map((i) => i)}
-              </div>
-              <span>
-                <Icons.ChevronRight className="text-light-text w-6 h-6" />
-              </span>
-            </div>
+            <Swiper
+              navigation={true}
+              modules={[Navigation, Pagination]}
+              slidesPerView={1}
+              spaceBetween={10}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                840: {
+                  slidesPerView: 2,
+                  spaceBetween: 40,
+                },
+                1200: {
+                  slidesPerView: 3,
+                  spaceBetween: 50,
+                },
+              }}
+              className="flex items-center justify-center max-w-global mx-auto"
+            >
+              {Array(10)
+                .fill(null)
+                .map((_, i) => (
+                  <SwiperSlide key={`'other'-${i}`} className=" center">
+                    <OtherSayCard
+                      imgUrl="/imgs/gallery/lens.png"
+                      name={`${i + 1} Alloy`}
+                      position="Accountant"
+                      content=" Maecenas suscipit in nulla tristique pretium. Praesent eget tellusMaecenas suscipit in nulla tristique pretium. Praesent eget tellusMaecenas suscipit in nulla tristique pretium. Praesent eget tellus "
+                    />
+                  </SwiperSlide>
+                ))}
+            </Swiper>
           </div>
         </div>
       </div>

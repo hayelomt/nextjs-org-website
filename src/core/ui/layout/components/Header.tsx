@@ -72,7 +72,7 @@ const Header = ({ setShowMenu }: { setShowMenu: (show: boolean) => void }) => {
 
   const DesktopMenu = () => (
     <div className="hidden w-full flex-col lg:flex">
-      <div className="relative flex h-[50px] w-full flex-row items-center justify-between bg-brand pl-[110px] text-white pr-2 border-none">
+      <div className="relative flex h-[50px] w-full flex-row items-center justify-between bg-brand pl-[110px] text-white pr-4 border-none">
         <div
           className="absolute top-0 left-[-2px] h-[105%] w-[50px] bg- border border-white bg-white"
           style={{ clipPath: 'polygon(0 0, 0% 100%, 100% 100%)' }}
@@ -97,7 +97,7 @@ const Header = ({ setShowMenu }: { setShowMenu: (show: boolean) => void }) => {
         </div>
       </div>
 
-      <div className="flex w-full items-center justify-between py-4 pl-[50px] gap-x-2 pr-2">
+      <div className="flex w-full items-center justify-between py-4 pl-[50px] gap-x-2 pr-4">
         <div className="flex gap-x-[32px]">
           <LinkItem label="Home" url="/" active={router.pathname === '/'} />
           <LinkDropItem
@@ -178,11 +178,11 @@ const Header = ({ setShowMenu }: { setShowMenu: (show: boolean) => void }) => {
       <div className="flex bg-white">
         <div className="w-full"></div>
         <div className="max-w-global mx-auto flex w-full flex-shrink-0 items-center">
-          <div className="pl-3">
-            <div className="mr-[40px] h-[60px] md:h-[90px] w-[120px] md:w-[180px] xl:mr-[188px] py-2">
+          <div className="pl-4">
+            <div className="mr-[10px] h-[60px] md:h-[90px] w-[120px] md:w-[180px] xl:mr-[188px] py-2 flex justify-start flex-shrink">
               <img
                 src="/imgs/layout/logo.png"
-                className="w-full h-full object-contain object-center"
+                className="w-full h-full object-contain object-left"
                 alt="corha logo"
               />
             </div>

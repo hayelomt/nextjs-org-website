@@ -9,8 +9,8 @@ const existVariant = {
     transition: { duration: 0.2, type: 'spring', stiffness: 80, damping: 13 },
   },
   exit: {
-    x: '-100vw',
-    transition: { duration: 0.4 },
+    opacity: 0,
+    transition: { duration: 0.1 },
   },
 };
 
