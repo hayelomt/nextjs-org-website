@@ -12,7 +12,7 @@ const AboutPage = () => {
         <ImageHeading
           imgUrl="/imgs/about/team.jpeg"
           title={<h1 className="mb-3 text-white">About Us </h1>}
-          crumbLinks={['Home', 'About']}
+          crumbLinks={['Home', 'About Us']}
         />
         <Existence />
         <Status />

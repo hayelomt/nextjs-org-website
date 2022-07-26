@@ -43,7 +43,7 @@
     @apply text-[16px] md:text-[20px] font-karla leading-[19px] md:leading-[24px];
   }
   .body1 {
-    @apply text-[14px] md:text-[16px] font-karla leading-[16.6px] md:leading-[19px];
+    @apply text-[14px] md:text-[16px] font-karla leading-[150%];
   }
   .subtitle {
     @apply text-[11px] md:text-[13px] font-karla leading-[12.8px] md:leading-[15.2px];

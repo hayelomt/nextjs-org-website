@@ -46,11 +46,21 @@ const Existence = () => {
         <div className="max-w-global mx-auto flex flex-col items-start pt-[60px] sm:pt-[178px] pb-[30px] sm:pb-[60px] lg:flex-row lg:items-center">
           <div className="xm:mb-0 relative mb-[20px] min-h-[400px] w-full pr-10 sm:min-h-[560px]">
             <div
-              className="absolute top-0 left-0 h-[250px] sm:h-[80%] w-full max-w-[80%] rounded-[20px] border-[10px] border-white  sm:rounded-[32px] bg-cover bg-center"
-              style={{ backgroundImage: 'url("/imgs/about/exist1.jpeg")' }}
+              className="absolute top-0 left-0 h-[250px] sm:h-[80%] w-full max-w-[80%]  "
+              // style={{ backgroundImage: 'url("/imgs/about/exist1.jpeg")' }}
             >
+              <div className="w-full h-full overflow-hidden rounded-[20px] sm:rounded-[32px]  border-[10px] border-white ">
+                <motion.img
+                  whileHover={{ scale: 1.1, transition: { duration: 1 } }}
+                  animate={{ scale: 1, transition: { duration: 1 } }}
+                  src="/imgs/about/exist1.jpeg"
+                  className="w-full h-full object-cover "
+                  alt="about"
+                />
+              </div>
+
               <div className="px-[20px] md:px-[30px] py-[16px] md:py-[23px] bg-brand center w-fit absolute center rounded-[20px] top-0 right-[50%] lg:right-0 -translate-y-[50%] translate-x-[65%]">
-                <div className="flex text-white items-center">
+                <motion.div className="flex text-white items-center">
                   <p className="mr-[12px] text-[50px] md:text-[72px] leading-[72px] tracking-tighter font-barlow">
                     17
                   </p>
@@ -58,13 +68,20 @@ const Existence = () => {
                     <p className="subheading text-[#D2D2D2]">Years</p>
                     <p className="subheading text-[#D2D2D2]">of experience</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
-            <div
-              className="absolute top-[65px] left-10 h-[250px] sm:h-[80%] w-full max-w-[80%] rounded-[20px] sm:top-20 sm:left-20 border-[10px] border-white bg-gray-500 bg-cover bg-center"
-              style={{ backgroundImage: 'url("/imgs/about/hut.jpeg")' }}
-            ></div>
+            <div className="absolute top-[65px] left-10 h-[250px] sm:h-[80%] w-full max-w-[80%] rounded-[20px] sm:top-20 sm:left-20 ">
+              <div className="w-full h-full overflow-hidden rounded-[20px] sm:rounded-[32px]  border-[10px] border-white ">
+                <motion.img
+                  whileHover={{ scale: 1.1, transition: { duration: 1 } }}
+                  animate={{ scale: 1, transition: { duration: 1 } }}
+                  src="/imgs/about/hut.jpeg"
+                  className="w-full h-full object-cover "
+                  alt="about"
+                />
+              </div>
+            </div>
           </div>
           <div className="w-full pl-4">
             <h2 className="mb-[12px] md:mb-[20px]">

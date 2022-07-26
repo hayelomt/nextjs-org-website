@@ -19,7 +19,7 @@ const Status = () => {
                   <Icons.Volunteer />
                 </span>
                 <p className="font-barlow text-[55px] leading-tight sm:text-[82px]">
-                  <CountUp end={1200} duration={1} />
+                  <CountUp delay={0.5} end={1200} duration={2} />
                 </p>
                 <p className="subtitle">Our volunteers</p>
               </div>
@@ -28,7 +28,7 @@ const Status = () => {
                   <Icons.Partner />
                 </span>
                 <p className="font-barlow text-[55px] leading-tight sm:text-[82px]">
-                  <CountUp end={1100} duration={1} />
+                  <CountUp delay={0.5} end={1100} duration={2} />
                 </p>
                 <p className="subtitle">Global partners</p>
               </div>
@@ -37,7 +37,7 @@ const Status = () => {
                   <Icons.Medical />
                 </span>
                 <p className="font-barlow text-[55px] leading-tight sm:text-[82px]">
-                  <CountUp end={1200} duration={1} />
+                  <CountUp delay={0.5} end={1200} duration={2} />
                 </p>
                 <p className="subtitle">Medical support</p>
               </div>
@@ -46,7 +46,7 @@ const Status = () => {
                   <Icons.Support />
                 </span>
                 <p className="font-barlow text-[55px] leading-tight sm:text-[82px]">
-                  <CountUp end={1300} duration={1} />
+                  <CountUp delay={0.5} end={1300} duration={2} />
                 </p>
                 <p className="subtitle">Children support</p>
               </div>

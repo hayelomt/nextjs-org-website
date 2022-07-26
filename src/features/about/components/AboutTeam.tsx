@@ -1,7 +1,13 @@
 const AboutTeam = () => {
   const TeamCard = () => (
-    <div className="xs:w-[309px] flex w-full max-w-[309px] flex-col rounded-[15px]">
-      <div className="h-[309px] w-full rounded-[20px] bg-brand"></div>
+    <div className="xs:w-[309px] flex w-full max-w-[309px] flex-col rounded-[20px] overflow-hidden py-2 px-1">
+      <div className="h-[309px] w-full rounded-[20px]">
+        <img
+          src="/imgs/about/hut.jpeg"
+          className="object-cover object-center w-full h-full rounded-[20px]"
+          alt="member photo"
+        />
+      </div>
       <div
         className="mt-[20px] flex flex-col rounded-[12px] py-[10px] px-4 sm:mt-[32px] sm:py-[15px]"
         style={{ boxShadow: '0px 1px 10px 3px rgba(0, 0, 0, 0.08)' }}
