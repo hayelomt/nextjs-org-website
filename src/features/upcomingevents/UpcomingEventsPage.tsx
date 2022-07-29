@@ -1,10 +1,32 @@
+import { useEffect, useState } from 'react';
+import useResizeWindow from '../../core/hooks/useResizeWindow';
 import Layout from '../../core/ui/layout/Layout';
 import { TextHeading } from '../../core/ui/shared/heading';
-import { buildPattern } from '../../core/utils/global.utils';
+import {
+  buildPattern,
+  buildSequentialPattern,
+  PatternSymbol,
+} from '../../core/utils/global.utils';
 import UpcomingEventCard from './components/UpcomingEventCard';
 
 const UpcomingEventsPage = () => {
-  const patterns = buildPattern(6);
+  const [patterns, setPatterns] = useState<PatternSymbol[]>([]);
+
+  const parsePattern = (windowWidth: number) => {
+    if (windowWidth < 1024) {
+      setPatterns(buildSequentialPattern(6));
+    } else {
+      setPatterns(buildPattern(6));
+    }
+  };
+
+  useResizeWindow((width) => {
+    parsePattern(width);
+  });
+
+  useEffect(() => {
+    parsePattern(window.screen.width);
+  }, []);
 
   return (
     <>

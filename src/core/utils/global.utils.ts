@@ -1,6 +1,6 @@
-type PatternSymbol = 0 | 1;
+export type PatternSymbol = 0 | 1;
 
-const buildPattern = (length: number) => {
+const buildPattern = (length: number): PatternSymbol[] => {
   const patternBuilder = (
     accumulator: PatternSymbol[],
     maxCount: number,
@@ -46,4 +46,10 @@ const buildPattern = (length: number) => {
   return patternBuilder([], length, 0);
 };
 
-export { buildPattern };
+const buildSequentialPattern = (length: number): PatternSymbol[] => {
+  return Array(length)
+    .fill(null)
+    .map((_, i) => (i % 2 === 0 ? 0 : 1));
+};
+
+export { buildPattern, buildSequentialPattern };
