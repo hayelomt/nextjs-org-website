@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Tag } from '../../../core/ui/shared';
 import Icons from '../../../core/ui/utils/icons';
 
@@ -10,12 +11,14 @@ type BlogProps = {
 };
 
 const BlogCard = ({ tag, title, description, date, imgUrl }: BlogProps) => (
-  <article
-    className="w-full xs:w-[430px] flex flex-col  rounded-[24px] sm:rounded-[32px] flex-shrink-0 bg-white"
+  <motion.article
+    whileHover={{ y: -15, scale: 1.01, transition: { stiffness: 80 } }}
+    animate={{ y: 0, scale: 1, transition: { stiffness: 80 } }}
+    className="w-full lg:w-[430px] max-w-[430px] flex flex-col  rounded-[24px] sm:rounded-[32px] flex-shrink-0 bg-white cursor-pointer"
     style={{ boxShadow: '0px 1px 6px 4px rgba(0, 0, 0, 0.05)' }}
   >
     <div
-      className="h-[337px] w-full bg-cover rounded-[24px] sm:rounded-[32px]"
+      className="h-[250px] xs:h-[337px] w-full bg-cover bg-center rounded-[24px] sm:rounded-[32px]"
       style={{ backgroundImage: `url("${imgUrl}")` }}
     ></div>
     <div className="py-[22px] sm:py-[32px] px-[18px] sm:px-[27px] flex flex-col">
@@ -34,7 +37,7 @@ const BlogCard = ({ tag, title, description, date, imgUrl }: BlogProps) => (
         <p className="subtitle text-light-text">{date}</p>
       </div>
     </div>
-  </article>
+  </motion.article>
 );
 
 export default BlogCard;

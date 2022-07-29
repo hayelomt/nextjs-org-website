@@ -55,7 +55,10 @@ const ImageHeading = ({
       <>
         <motion.div variants={titleVariant}>{title}</motion.div>
 
-        <motion.div variants={descriptionVariant}>
+        <motion.div
+          className="flex flex-col items-center"
+          variants={descriptionVariant}
+        >
           {crumbLinks.length && (
             <span className="mt-3">
               <BreadCrumbs links={crumbLinks} />
