@@ -13,6 +13,11 @@
     font-family: karla;
   }
 
+  [type='text'],
+  textarea {
+    @apply focus:ring-brand focus:border-brand;
+  }
+
   .backdrop {
     position: fixed;
     height: 100%;

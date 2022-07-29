@@ -17,7 +17,7 @@ const ContactUsPage = () => {
             <div className="flex lg:w-full flex-col">
               <div className="mb-[15px] flex items-center sm:mb-[27px]">
                 <span className="mr-[20px] sm:mr-[32px]">
-                  <Icons.PhoneBig />
+                  <Icons.PhoneBig className="h-[45px] md:h-[64px]" />
                 </span>
                 <div className="flex flex-col">
                   <p className="subheading mb-[10px]">Call Us</p>
@@ -28,7 +28,7 @@ const ContactUsPage = () => {
 
               <div className="mb-[15px] flex items-center sm:mb-[27px]">
                 <span className="mr-[20px] sm:mr-[32px]">
-                  <Icons.Message />
+                  <Icons.Message className="h-[45px] md:h-[64px]" />
                 </span>
                 <div className="flex flex-col">
                   <p className="subheading mb-[10px]">Email Us</p>
@@ -40,7 +40,7 @@ const ContactUsPage = () => {
 
               <div className="flex items-center">
                 <span className="mr-[20px] sm:mr-[32px]">
-                  <Icons.LocationMap />
+                  <Icons.LocationMap className="h-[45px] md:h-[64px]" />
                 </span>
                 <div className="flex flex-col">
                   <p className="subheading mb-[10px]">Location</p>
