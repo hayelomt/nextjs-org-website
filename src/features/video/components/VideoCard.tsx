@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Tag } from '../../../core/ui/shared';
 import Icons from '../../../core/ui/utils/icons';
 
@@ -10,12 +11,14 @@ type VideoProps = {
 };
 
 const VideoCard = ({ tag, title, date, imgUrl }: VideoProps) => (
-  <article
-    className="w-full xs:w-[430px] flex flex-col  rounded-[24px] sm:rounded-[32px] flex-shrink-0 bg-white"
+  <motion.article
+    whileHover={{ y: -15, scale: 1.01, transition: { stiffness: 80 } }}
+    animate={{ y: 0, scale: 1, transition: { stiffness: 80 } }}
+    className="w-full lg:w-[430px] max-w-[430px] flex flex-col  rounded-[24px] sm:rounded-[32px] flex-shrink-0 bg-white cursor-pointer"
     style={{ boxShadow: '0px 1px 6px 4px rgba(0, 0, 0, 0.05)' }}
   >
     <div
-      className="h-[337px] w-full bg-cover rounded-[24px] relative sm:rounded-[32px]"
+      className="h-[337px] w-full bg-cover bg-center rounded-[24px] relative sm:rounded-[32px]"
       style={{ backgroundImage: `url("${imgUrl}")` }}
     >
       <div className="absolute top-[50%] left-[50%] -translate-y-[50%] -translate-x-[50%]">
@@ -35,7 +38,7 @@ const VideoCard = ({ tag, title, date, imgUrl }: VideoProps) => (
         <p className="subtitle text-light-text">{date}</p>
       </div>
     </div>
-  </article>
+  </motion.article>
 );
 
 export default VideoCard;
