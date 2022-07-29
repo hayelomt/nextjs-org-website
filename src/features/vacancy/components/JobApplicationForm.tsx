@@ -40,7 +40,7 @@ const JobApplicationForm = ({ onCancel }: { onCancel: () => void }) => {
           />
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center">
           <p className="subheading mr-[35px] sm:mr-[60px]">Upload your CV</p>
 
           <input

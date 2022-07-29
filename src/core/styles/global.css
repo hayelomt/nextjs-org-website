@@ -18,6 +18,10 @@
     @apply focus:ring-brand focus:border-brand;
   }
 
+  [type='text'] {
+    @apply h-[40px] sm:h-[55px];
+  }
+
   .backdrop {
     position: fixed;
     height: 100%;

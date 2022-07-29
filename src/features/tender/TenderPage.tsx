@@ -1,10 +1,14 @@
+import { useState } from 'react';
+import usePattern from '../../core/hooks/usePattern';
 import Layout from '../../core/ui/layout/Layout';
+import { Modal } from '../../core/ui/shared';
 import { TextHeading } from '../../core/ui/shared/heading';
-import { buildPattern } from '../../core/utils/global.utils';
+import TenderApplicationForm from './components/TenderApplicationForm';
 import TenderCard from './components/TenderCard';
 
 const TenderPage = () => {
-  const patterns = buildPattern(6);
+  const [showModal, setShowModal] = useState(false);
+  const { patterns } = usePattern(6);
 
   return (
     <>
@@ -40,12 +44,17 @@ const TenderPage = () => {
                 lacus, gravida vel lacus et, tristique faucibus dolor."
                     deadline="21 Aug, 2022"
                     type={patterns[i] === 0 ? 'plain' : 'brand'}
+                    onShowTender={() => setShowModal(true)}
                   />
                 ))}
             </div>
           </div>
         </div>
       </Layout>
+
+      <Modal showModal={showModal} setHideModal={() => setShowModal(false)}>
+        <TenderApplicationForm onCancel={() => setShowModal(false)} />
+      </Modal>
     </>
   );
 };
