@@ -6,7 +6,7 @@ const existVariant = {
   hidden: { x: '100vw' },
   visible: {
     x: 0,
-    transition: { duration: 0.2, type: 'spring', stiffness: 80, damping: 13 },
+    transition: { duration: 0.2, type: 'spring', stiffness: 80, damping: 14 },
   },
   exit: {
     opacity: 0,
@@ -44,7 +44,7 @@ const Existence = () => {
     <>
       <section className="px-global">
         <div className="max-w-global mx-auto flex flex-col items-start pt-[60px] sm:pt-[178px] pb-[30px] sm:pb-[60px] lg:flex-row lg:items-center">
-          <div className="xm:mb-0 relative mb-[20px] min-h-[400px] w-full pr-10 sm:min-h-[560px]">
+          <div className="xm:mb-0 relative mb-[20px] min-h-[320px] w-full pr-10 sm:min-h-[560px]">
             <div
               className="absolute top-0 left-0 h-[250px] sm:h-[80%] w-full max-w-[80%]  "
               // style={{ backgroundImage: 'url("/imgs/about/exist1.jpeg")' }}
@@ -71,7 +71,7 @@ const Existence = () => {
                 </motion.div>
               </div>
             </div>
-            <div className="absolute top-[65px] left-10 h-[250px] sm:h-[80%] w-full max-w-[80%] rounded-[20px] sm:top-20 sm:left-20 ">
+            <div className="absolute top-[65px] left-10 h-[250px] sm:h-[80%] w-full max-w-[85%] rounded-[20px] sm:top-20 md:left-[140px] ">
               <div className="w-full h-full overflow-hidden rounded-[20px] sm:rounded-[32px]  border-[10px] border-white ">
                 <motion.img
                   whileHover={{ scale: 1.1, transition: { duration: 1 } }}
@@ -83,7 +83,7 @@ const Existence = () => {
               </div>
             </div>
           </div>
-          <div className="w-full pl-4">
+          <div className="w-full px-4 sm:px-[80px]">
             <h2 className="mb-[12px] md:mb-[20px]">
               We Exists For Non-profits And Social Enterprises
             </h2>

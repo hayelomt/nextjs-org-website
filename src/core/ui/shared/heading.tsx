@@ -13,18 +13,18 @@ const sectionVariant = {
 };
 
 const titleVariant = {
-  hidden: { x: '-100vw' },
+  hidden: { y: '-50' },
   visible: {
-    x: 0,
-    transition: { duration: 0.5, type: 'spring', stiffness: 80, damping: 14 },
+    y: 0,
+    transition: { duration: 0.2, type: 'spring', stiffness: 60, damping: 14 },
   },
 };
 
 const descriptionVariant = {
-  hidden: { x: '100vw' },
+  hidden: { y: '50' },
   visible: {
-    x: 0,
-    transition: { duration: 0.5, type: 'spring', stiffness: 80, damping: 14 },
+    y: 0,
+    transition: { duration: 0.2, type: 'spring', stiffness: 60, damping: 14 },
   },
 };
 

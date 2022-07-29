@@ -3,7 +3,7 @@ import { ImageHeading } from '../../core/ui/shared/heading';
 import AboutOthersSay from './components/AboutOthersSay';
 import AboutTeam from './components/AboutTeam';
 import Existence from './components/Existence';
-import Status from './components/Status';
+import Stats from './components/Stats';
 
 const AboutPage = () => {
   return (
@@ -15,7 +15,7 @@ const AboutPage = () => {
           crumbLinks={['Home', 'About Us']}
         />
         <Existence />
-        <Status />
+        <Stats />
         <AboutTeam />
         <AboutOthersSay />
       </Layout>
