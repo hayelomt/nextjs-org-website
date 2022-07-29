@@ -1,9 +1,14 @@
+import { useState } from 'react';
 import Layout from '../../core/ui/layout/Layout';
-import { PaginationButtons } from '../../core/ui/shared/buttons';
+import { PaginationButtons, Toggle } from '../../core/ui/shared/buttons';
 import { TextHeading } from '../../core/ui/shared/heading';
 import OurProjectCard from './components/OurProjectCard';
 
 const OurProjectPage = () => {
+  const [topic, setTopic] = useState<
+    'all' | 'children' | 'std' | 'contraception'
+  >('all');
+
   return (
     <>
       <Layout>
@@ -29,31 +34,27 @@ const OurProjectPage = () => {
 
         <div className="px-global  pb-[60px] sm:pb-[136px]">
           <div className="max-w-global mx-auto">
-            <div className="mb-[35px] sm:mb-[70px] flex gap-x-[12px]  md:gap-x-[20px] max-w-full overflow-x-auto pb-2 justify-center">
-              <button
-                className="text-button rounded-[10px] bg-red px-[12px] py-[8px] text-white md:px-[24px] md:py-[10px]"
-                style={{ boxShadow: '0px 1px 10px 3px rgba(0, 0, 0, 0.08)' }}
-              >
-                All
-              </button>
-              <button
-                className="text-button rounded-[10px] bg-white px-[12px] py-[8px] text-dark md:px-[24px] md:py-[10px]"
-                style={{ boxShadow: '0px 1px 10px 3px rgba(0, 0, 0, 0.08)' }}
-              >
-                Children
-              </button>
-              <button
-                className="text-button rounded-[10px] bg-white px-[12px] py-[8px] text-dark md:px-[24px] md:py-[10px]"
-                style={{ boxShadow: '0px 1px 10px 3px rgba(0, 0, 0, 0.08)' }}
-              >
-                STD
-              </button>
-              <button
-                className="text-button rounded-[10px] bg-white px-[12px] py-[8px] text-dark md:px-[24px] md:py-[10px]"
-                style={{ boxShadow: '0px 1px 10px 3px rgba(0, 0, 0, 0.08)' }}
-              >
-                Contraception
-              </button>
+            <div className="mb-[35px] sm:mb-[70px] flex flex-wrap items-center gap-[12px]  md:gap-[20px] max-w-full overflow-x-auto py-2 justify-center">
+              <Toggle
+                active={topic === 'all'}
+                onClick={() => setTopic('all')}
+                label="ALL"
+              />
+              <Toggle
+                active={topic === 'children'}
+                onClick={() => setTopic('children')}
+                label="CHILDREN"
+              />
+              <Toggle
+                active={topic === 'std'}
+                onClick={() => setTopic('std')}
+                label="STD"
+              />
+              <Toggle
+                active={topic === 'contraception'}
+                onClick={() => setTopic('contraception')}
+                label="CONTRACEPTION"
+              />
             </div>
 
             <div className="w-full mb-[25px] sm:mb-[58px]">

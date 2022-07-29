@@ -4,9 +4,11 @@ import Icons from '../utils/icons';
 const BreadCrumbs = ({
   links,
   linkColor = 'text-white',
+  crumbColor = 'text-white',
 }: {
   links: string[];
   linkColor?: string;
+  crumbColor?: string;
 }) => (
   <>
     <div className="flex items-center">
@@ -19,7 +21,9 @@ const BreadCrumbs = ({
           <div className="flex" key={`crumb-${i}`}>
             <p className={clsx('body1 mr-[14px]', linkColor)}>{link}</p>
             <span className=" mt-[2px]">
-              <Icons.ChevronRight className="h-4 w-4 mr-[14px] text-white" />
+              <Icons.ChevronRight
+                className={clsx('h-4 w-4 mr-[14px] mt-[2px]', crumbColor)}
+              />
             </span>
           </div>
         )

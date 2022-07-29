@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { Toggle } from '../../../core/ui/shared/buttons';
 
 const existVariant = {
   hidden: { x: '100vw' },
@@ -18,27 +19,6 @@ const Existence = () => {
   const [displayContent, setDisplayContent] = useState<
     'mission' | 'vision' | 'goal'
   >('mission');
-
-  const Toggle = ({
-    label,
-    active = false,
-    onClick,
-  }: {
-    label: string;
-    active?: boolean;
-    onClick: () => void;
-  }) => (
-    <button
-      className={clsx(
-        'px-[12px] md:px-[24px] py-[8px] md:py-[10px] rounded-[10px]  text-button hover:shadow-lg hover:-translate-y-[2px] transition duration-200',
-        [active ? 'bg-red text-white' : 'bg-white text-dark']
-      )}
-      style={{ boxShadow: '0px 1px 10px 3px rgba(0, 0, 0, 0.08)' }}
-      onClick={onClick}
-    >
-      {label}
-    </button>
-  );
 
   return (
     <>

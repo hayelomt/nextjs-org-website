@@ -83,7 +83,11 @@ const TextHeading = ({
       {title}
       {crumbLinks.length && (
         <span className="mt-3">
-          <BreadCrumbs links={crumbLinks} linkColor="text-dark-text" />
+          <BreadCrumbs
+            links={crumbLinks}
+            linkColor="text-dark-text"
+            crumbColor="black"
+          />
         </span>
       )}
       {description && description}
