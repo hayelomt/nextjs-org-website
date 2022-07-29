@@ -5,7 +5,13 @@ import { ReactElement, useState } from 'react';
 import { ArrowedButton } from '../../shared/buttons';
 import Icons from '../../utils/icons';
 
-const Header = ({ setShowMenu }: { setShowMenu: (show: boolean) => void }) => {
+const Header = ({
+  setShowMenu,
+  showShadow = false,
+}: {
+  setShowMenu: (show: boolean) => void;
+  showShadow?: boolean;
+}) => {
   const router = useRouter();
 
   const LinkItem = ({
@@ -20,7 +26,7 @@ const Header = ({ setShowMenu }: { setShowMenu: (show: boolean) => void }) => {
     <Link href={url}>
       <a
         className={clsx(
-          'text-[16px] font-karla cursor-pointer hover:text-red hover:font-semibold transition duration-150',
+          'text-[16px] font-karla cursor-pointer hover:text-red transition duration-150',
           [active ? 'active-link' : 'inactive-link']
         )}
       >
@@ -175,7 +181,10 @@ const Header = ({ setShowMenu }: { setShowMenu: (show: boolean) => void }) => {
 
   return (
     <>
-      <div className="flex bg-white">
+      <div
+        className={clsx('flex bg-white z-10 ', [showShadow && 'mb-2'])}
+        style={{ boxShadow: '0px 1px 10px 3px rgba(0, 0, 0, 0.08)' }}
+      >
         <div className="w-full"></div>
         <div className="max-w-global mx-auto flex w-full flex-shrink-0 items-center">
           <div className="pl-4">

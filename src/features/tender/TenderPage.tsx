@@ -12,7 +12,7 @@ const TenderPage = () => {
 
   return (
     <>
-      <Layout>
+      <Layout showHeaderShadow={true}>
         <TextHeading
           title={<h1 className="mb-3">Tenders</h1>}
           description={

@@ -4,20 +4,24 @@ import MobileFixedMenu from './components/MobileFixedMenu';
 
 type LayoutProps = {
   children: ReactNode;
+  showHeaderShadow?: boolean;
 };
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, showHeaderShadow = false }: LayoutProps) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
     <>
-      <div className="main-container">
+      <div className="main-container bg-white">
         <MobileFixedMenu
           showMenu={showMobileMenu}
           setShowMenu={setShowMobileMenu}
         />
         <div className="h-[100%] overflow-y-auto">
-          <Header setShowMenu={setShowMobileMenu} />
+          <Header
+            setShowMenu={setShowMobileMenu}
+            showShadow={showHeaderShadow}
+          />
           {children}
         </div>
       </div>

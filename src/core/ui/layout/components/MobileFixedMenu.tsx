@@ -42,7 +42,7 @@ const MobileDropLink = ({
   return (
     <div className="flex flex-col items-center group transition-all duration-500">
       <div
-        className="flex items-center"
+        className="flex items-center mb-2"
         onClick={() => setShowSubLinks(!showSubLinks)}
       >
         <h3 className={clsx([active ? 'active-link' : 'inactive-link'])}>
@@ -89,7 +89,7 @@ const backdropVariant = {
 };
 
 const linkListVariant = {
-  visible: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.05, delayChildren: 0.05 } },
   exit: { transition: { staggerChildren: 0.05, delayChildren: -1 } },
 };
 
@@ -122,7 +122,7 @@ const MobileFixedMenu = ({
           >
             <div
               className={clsx(
-                'fixed top-0 bottom-0 left-0 right-0 h-full w-full lg:hidden  transition ease-in-out duration-300 origin-top text-link-text z-10 overflow-y-auto'
+                'fixed top-0 bottom-0 left-0 right-0 h-full w-full lg:hidden  transition ease-in-out duration-300 origin-top text-link-text z-10 overflow-y-auto bg-white'
               )}
             >
               <div className="flex flex-col h-full p-4  ">
@@ -245,6 +245,9 @@ const MobileFixedMenu = ({
                         </div>
                       </div>
                     </div>
+                  </motion.li>
+                  <motion.li>
+                    <div className="h-[40px]"></div>
                   </motion.li>
                 </motion.ul>
               </div>

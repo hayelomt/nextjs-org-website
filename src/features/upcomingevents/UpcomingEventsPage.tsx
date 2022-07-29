@@ -8,7 +8,7 @@ const UpcomingEventsPage = () => {
 
   return (
     <>
-      <Layout>
+      <Layout showHeaderShadow={true}>
         <TextHeading
           title={
             <h1 className="mb-3">
