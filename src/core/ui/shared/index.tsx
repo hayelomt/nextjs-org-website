@@ -1,5 +1,7 @@
+import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import Icons from '../utils/icons';
+import { ReactElement } from 'react';
 
 const BreadCrumbs = ({
   links,
@@ -38,4 +40,59 @@ const Tag = ({ label }: { label: string }) => (
   </div>
 );
 
-export { Tag, BreadCrumbs };
+const Modal = ({
+  showModal,
+  setHideModal,
+  children,
+}: {
+  showModal: boolean;
+  setHideModal: () => void;
+  children: ReactElement;
+}) => {
+  const backdrop = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0, when: 'afterChildren' },
+  };
+
+  const modal = {
+    hidden: { y: '-80vh' },
+    visible: {
+      y: '0',
+      transition: { duration: 0.2, type: 'spring', stiffness: 80, damping: 13 },
+    },
+    exit: { y: '-120vh', transition: { duration: 1 } },
+  };
+
+  return (
+    <>
+      <AnimatePresence exitBeforeEnter>
+        {showModal && (
+          <motion.div
+            className="backdrop"
+            variants={backdrop}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            onClick={setHideModal}
+          >
+            <motion.div
+              variants={modal}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              className="flex items-center justify-center"
+            >
+              {children}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+export { Tag, BreadCrumbs, Modal };
