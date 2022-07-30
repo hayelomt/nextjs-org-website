@@ -81,6 +81,9 @@
   .inactive-link {
     @apply text-link-text;
   }
+  .small-aspect {
+    aspect-ratio: 10 / 8;
+  }
 }
 
 @layer components {
