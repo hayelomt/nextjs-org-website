@@ -1,3 +1,5 @@
+import GalleryImages from '../../gallery/components/GalleryImages';
+
 const Gallery = () => {
   const GalleryCard = () => (
     <div className="h-[252px] w-full sm:w-[321px] xl:w-full  max-w-[321px] overflow-hidden rounded-[20px]">
@@ -25,22 +27,7 @@ const Gallery = () => {
             </p>
           </div>
           <div className="flex w-full flex-col items-center gap-x-[30px] xl:flex-row">
-            <div className="w-full">
-              <div className="mx-auto min-w-[300px] grid w-fit xl:w-full grid-cols-1 sm:grid-cols-2 place-content-center place-items-center gap-[30px]">
-                <GalleryCard />
-                <GalleryCard />
-                <GalleryCard />
-                <GalleryCard />
-              </div>
-            </div>
-
-            <div className="mt-6 xl:mt-0 w-full flex-shrink max-w-[680px] xl:max-w-none mx-auto rounded-[20px] flex justify-center">
-              <img
-                src="/imgs/home/gallery2.jpeg"
-                className="w-full min-h-fit object-cover self-center"
-                alt="gallery item 2"
-              />
-            </div>
+            <GalleryImages />
           </div>
         </div>
       </div>

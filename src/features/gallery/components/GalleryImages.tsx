@@ -11,9 +11,9 @@ const GalleryImages = () => {
             <div className="small-aspect h-fit w-1/2 overflow-hidden rounded-[14px] sm:rounded-[24px] bg-brand"></div>
             <div className="small-aspect h-fit w-1/2 overflow-hidden rounded-[14px] sm:rounded-[24px] bg-brand"></div>
           </div>
-          <div className="flex w-full gap-x-[15px] md:gap-x-[34px]">
+          {/* <div className="flex w-full gap-x-[15px] md:gap-x-[34px]">
             <div className="w-full small-aspect overflow-hidden rounded-[14px] sm:rounded-[24px] bg-brand"></div>
-          </div>
+          </div> */}
         </div>
 
         <div className="w-full flex flex-col gap-y-[12px] sm:gap-y-[24px]">
@@ -21,12 +21,12 @@ const GalleryImages = () => {
             <div className="w-full small-aspect overflow-hidden rounded-[14px] sm:rounded-[24px] bg-brand"></div>
           </div>
 
-          <div className="flex w-full gap-x-[15px] md:gap-x-[34px]">
+          {/* <div className="flex w-full gap-x-[15px] md:gap-x-[34px]">
             <div className="small-aspect h-fit w-1/2 overflow-hidden rounded-[14px] sm:rounded-[24px] bg-brand"></div>
           </div>
           <div className="flex w-full gap-x-[15px] md:gap-x-[34px]">
             <div className="w-full small-aspect overflow-hidden rounded-[14px] sm:rounded-[24px] bg-brand"></div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

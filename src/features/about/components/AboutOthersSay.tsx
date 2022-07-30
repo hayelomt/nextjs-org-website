@@ -1,34 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
-import { useEffect, useState } from 'react';
-import Icons from '../../../core/ui/utils/icons';
 import OtherSayCard from './OtherSayCard';
 
 const AboutOthersSay = () => {
-  const cardArray = [
-    <OtherSayCard
-      imgUrl="/imgs/gallery/lens.png"
-      name="Alloy"
-      position="Accountant"
-      content=" Maecenas suscipit in nulla tristique pretium. Praesent eget tellusMaecenas suscipit in nulla tristique pretium. Praesent eget tellusMaecenas suscipit in nulla tristique pretium. Praesent eget tellus "
-      key={1}
-    />,
-    <OtherSayCard
-      imgUrl="/imgs/gallery/lens.png"
-      name="Alloy"
-      position="Accountant"
-      content="              nibh. Praesent mi orci, fringilla sed est ac, efficitur auctor "
-      key={2}
-    />,
-    <OtherSayCard
-      imgUrl="/imgs/gallery/lens.png"
-      name="Alloy"
-      position="Accountant"
-      content="              velit. Fusce fermentum feugiat lacinia. Maecenas eleifend bibendum "
-      key={3}
-    />,
-  ];
-
   return (
     <>
       <div className="px-global w-full pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px] bg-gray-bg">

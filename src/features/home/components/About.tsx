@@ -1,3 +1,5 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper';
 import { ArrowedButton } from '../../../core/ui/shared/buttons';
 import Icons from '../../../core/ui/utils/icons';
 
@@ -31,29 +33,55 @@ const About = () => {
           style={{ boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.02)' }}
         >
           <div className="absolute top-[-72px] h-[373px] w-full justify-center px-2 md:px-[48px] mx-auto flex">
-            <div className="ml-[10px] w-full max-w-[1284px] h-full flex flex-row gap-x-[30px] overflow-x-auto mx-auto pb-4">
+            <Swiper
+              navigation={true}
+              modules={[Navigation, Pagination]}
+              slidesPerView={1}
+              spaceBetween={10}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                930: {
+                  slidesPerView: 2,
+                  spaceBetween: 40,
+                },
+                1340: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+              }}
+              className="flex items-center justify-center max-w-global mx-auto "
+            >
               {Array(3)
                 .fill(null)
                 .map((_, i) => (
-                  <CardItem key={`card-${i}`} />
+                  <SwiperSlide key={`'about-card'-${i}`} className=" center">
+                    <CardItem />
+                  </SwiperSlide>
                 ))}
-            </div>
+            </Swiper>
           </div>
         </div>
 
         <div className="max-w-global mx-auto flex flex-col md:flex-row">
           <div
-            className="mr-0 md:mr-[50px] h-[400px] md:h-[734px] w-full md:w-[400px] flex-shrink-0 rounded-[36px] lg:mr-[103px] lg:w-[630px] relative bg-cover"
+            className="mr-0 md:mr-[50px] h-[400px] md:h-[734px] w-full md:w-[400px] flex-shrink-0 rounded-[36px] lg:mr-[103px] lg:w-[630px] relative bg-cover bg-center"
             style={{ backgroundImage: 'url("/imgs/home/about-speech.jpeg")' }}
           >
             <div className="px-[20px] md:px-[30px] py-[16px] md:py-[23px] bg-brand center w-fit absolute center rounded-[20px] top-[50%] left-0 -translate-y-[50%]">
               <div className="flex text-white items-center">
-                <p className="mr-[12px] text-[50px] md:text-[72px] leading-[72px] tracking-tighter">
+                <p className="mr-[12px] text-[50px] md:text-[72px] leading-[72px] tracking-tighter font-barlow">
                   17
                 </p>
                 <div className="flex flex-col">
-                  <p className="subheading">Years</p>
-                  <p className="subheading">of experience</p>
+                  <p className="subheading !font-barlow text-[#D2D2D2]">
+                    Years
+                  </p>
+                  <p className="subheading !font-barlow text-[#D2D2D2]">
+                    of experience
+                  </p>
                 </div>
               </div>
             </div>
