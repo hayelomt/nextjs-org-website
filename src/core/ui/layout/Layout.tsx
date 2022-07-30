@@ -1,4 +1,5 @@
 import { ReactNode, useState } from 'react';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import MobileFixedMenu from './components/MobileFixedMenu';
 
@@ -23,6 +24,7 @@ const Layout = ({ children, showHeaderShadow = false }: LayoutProps) => {
             showShadow={showHeaderShadow}
           />
           {children}
+          <Footer />
         </div>
       </div>
     </>
