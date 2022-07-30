@@ -35,6 +35,34 @@ const Header = ({
     </Link>
   );
 
+  const DropLinkItem = ({
+    active = false,
+    label,
+    url,
+  }: {
+    label: string;
+    active?: boolean;
+    url: string;
+  }) => (
+    <Link href={url}>
+      <div className="flex items-center flex-row-reverse justify-end">
+        <a
+          className={clsx(
+            'text-[16px] px-[20px]  py-[12px]  peer cursor-pointer',
+            [active ? 'text-red' : 'text-link-text hover:text-red']
+          )}
+        >
+          {label}
+        </a>
+        <div
+          className={clsx('h-[44px] w-[4px] rounded-r-2xl', [
+            active ? 'bg-red' : 'bg-transparent',
+          ])}
+        ></div>
+      </div>
+    </Link>
+  );
+
   const LinkDropItem = ({
     label,
     active = false,
@@ -59,7 +87,10 @@ const Header = ({
         </span>
       </div>
       <div className="pt-2">
-        <div className="absolute top-[100%] left-[50%] -translate-x-[50%] bg-white border border-gray-bg p-4 w-screen max-w-fit rounded-lg shadow-lg whitespace-nowrap hidden group-hover:flex transition-all duration-200 flex-col">
+        <div
+          className="absolute top-[100%] left-[50%] -translate-x-[50%] bg-white  py-[12px]  w-screen max-w-fit rounded-b-[14px] shadow-lg whitespace-nowrap hidden group-hover:flex transition-all duration-200 flex-col pr-[23px]"
+          style={{ boxShadow: '1px 3px 5px 1px rgba(0, 0, 0, 0.15)' }}
+        >
           {children}
         </div>
       </div>
@@ -111,12 +142,12 @@ const Header = ({
             active={router.pathname.startsWith('/about')}
           >
             <>
-              <LinkItem
+              <DropLinkItem
                 label="About Us"
                 url="/about"
                 active={router.pathname === '/about'}
               />
-              <LinkItem
+              <DropLinkItem
                 label="Gallery"
                 url="/resources/galleries"
                 active={router.pathname === '/resources/galleries'}
@@ -143,22 +174,22 @@ const Header = ({
             active={router.pathname.startsWith('/resources')}
           >
             <>
-              <LinkItem
+              <DropLinkItem
                 label="Publication"
                 url="/resources/publications"
                 active={router.pathname === '/resources/publications'}
               />
-              <LinkItem
+              <DropLinkItem
                 label="Tenders"
                 url="/resources/tenders"
                 active={router.pathname === '/resources/tenders'}
               />
-              <LinkItem
+              <DropLinkItem
                 label="Vacancies"
                 url="/resources/vacancies"
                 active={router.pathname === '/resources/vacancies'}
               />
-              <LinkItem
+              <DropLinkItem
                 label="Videos"
                 url="/resources/videos"
                 active={router.pathname === '/resources/videos'}
