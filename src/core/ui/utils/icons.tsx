@@ -391,8 +391,27 @@ const Close = ({ className = 'w-6 h-6' }: IconProps) => (
   </svg>
 );
 
+const ArrowDouble = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="9"
+    height="9"
+    fill="none"
+    viewBox="0 0 9 9"
+  >
+    <path
+      stroke="#fff"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.333"
+      d="M4 4.5L.667 7.833M4 4.5L.667 1.167 4 4.5zM8 4.5L4.667 7.833M8 4.5L4.667 1.167 8 4.5z"
+    ></path>
+  </svg>
+);
+
 const Icons = {
   ArrowRight,
+  ArrowDouble,
   Calendar,
   ChevronDown,
   ChevronRight,

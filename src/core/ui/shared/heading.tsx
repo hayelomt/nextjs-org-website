@@ -13,7 +13,7 @@ const sectionVariant = {
 };
 
 const titleVariant = {
-  hidden: { y: '-50' },
+  hidden: { y: '-30' },
   visible: {
     y: 0,
     transition: { duration: 0.2, type: 'spring', stiffness: 60, damping: 14 },
@@ -21,7 +21,7 @@ const titleVariant = {
 };
 
 const descriptionVariant = {
-  hidden: { y: '50' },
+  hidden: { y: '30' },
   visible: {
     y: 0,
     transition: { duration: 0.2, type: 'spring', stiffness: 60, damping: 14 },
@@ -81,21 +81,31 @@ const TextHeading = ({
   title: ReactElement;
   description?: ReactElement;
 }) => (
-  <section className="px-global w-full pt-[35px] sm:pt-[72px] bg-white">
+  <motion.section
+    variants={sectionVariant}
+    initial="hidden"
+    animate="visible"
+    className="px-global w-full pt-[35px] sm:pt-[72px] bg-white"
+  >
     <div className="max-w-global mx-auto flex flex-col items-center">
-      {title}
-      {crumbLinks.length && (
-        <span className="mt-3">
-          <BreadCrumbs
-            links={crumbLinks}
-            linkColor="text-dark-text"
-            crumbColor="black"
-          />
-        </span>
-      )}
-      {description && description}
+      <motion.div variants={titleVariant}>{title}</motion.div>
+      <motion.div
+        variants={descriptionVariant}
+        className="flex flex-col items-center"
+      >
+        {crumbLinks.length && (
+          <span className="mt-3">
+            <BreadCrumbs
+              links={crumbLinks}
+              linkColor="text-dark-text"
+              crumbColor="black"
+            />
+          </span>
+        )}
+        {description && description}
+      </motion.div>
     </div>
-  </section>
+  </motion.section>
 );
 
 export { ImageHeading, TextHeading };

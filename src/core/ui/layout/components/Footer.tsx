@@ -35,23 +35,33 @@ const Footer = () => {
 
               <div className="flex flex-col gap-y-3">
                 <div className="flex items-center">
-                  <span className="mr-2">ic</span>
+                  <span className="mr-2">
+                    <Icons.ArrowDouble />
+                  </span>
                   <p className="body1 font-medium">Home</p>
                 </div>
                 <div className="flex items-center">
-                  <span className="mr-2">ic</span>
+                  <span className="mr-2">
+                    <Icons.ArrowDouble />
+                  </span>
                   <p className="body1 font-medium">About</p>
                 </div>
                 <div className="flex items-center">
-                  <span className="mr-2">ic</span>
+                  <span className="mr-2">
+                    <Icons.ArrowDouble />
+                  </span>
                   <p className="body1 font-medium">Blogs</p>
                 </div>
                 <div className="flex items-center">
-                  <span className="mr-2">ic</span>
+                  <span className="mr-2">
+                    <Icons.ArrowDouble />
+                  </span>
                   <p className="body1 font-medium">Projects</p>
                 </div>
                 <div className="flex items-center">
-                  <span className="mr-2">ic</span>
+                  <span className="mr-2">
+                    <Icons.ArrowDouble />
+                  </span>
                   <p className="body1 font-medium">Events</p>
                 </div>
               </div>
@@ -64,15 +74,21 @@ const Footer = () => {
 
               <div className="flex flex-col gap-y-3">
                 <div className="flex items-center">
-                  <span className="mr-2">ic</span>
+                  <span className="mr-2">
+                    <Icons.ArrowDouble />
+                  </span>
                   <p className="body1 font-medium">Our Gallery</p>
                 </div>
                 <div className="flex items-center">
-                  <span className="mr-2">ic</span>
+                  <span className="mr-2">
+                    <Icons.ArrowDouble />
+                  </span>
                   <p className="body1 font-medium">Publications</p>
                 </div>
                 <div className="flex items-center">
-                  <span className="mr-2">ic</span>
+                  <span className="mr-2">
+                    <Icons.ArrowDouble />
+                  </span>
                   <p className="body1 font-medium">Videos</p>
                 </div>
               </div>
@@ -86,8 +102,8 @@ const Footer = () => {
               </span>
               <div className="flex flex-col">
                 <p className="subheading mb-[10px]">Call Us</p>
-                <p className="body1 text-light-text">011-859-624-1</p>
-                <p className="body1 text-light-text">011-859-624-2</p>
+                <p className="body1 text-white">011-859-624-1</p>
+                <p className="body1 text-white">011-859-624-2</p>
               </div>
             </div>
 
@@ -97,7 +113,7 @@ const Footer = () => {
               </span>
               <div className="flex flex-col">
                 <p className="subheading mb-[10px]">Email Us</p>
-                <p className="body1 text-light-text">info@corhaethiopia.org</p>
+                <p className="body1 text-white">info@corhaethiopia.org</p>
               </div>
             </div>
 
@@ -107,7 +123,7 @@ const Footer = () => {
               </span>
               <div className="flex flex-col">
                 <p className="subheading mb-[10px]">Location</p>
-                <p className="body1 max-w-[253px] text-light-text">
+                <p className="body1 max-w-[253px] text-white">
                   Kaliti Road, In front of the training center for drivers
                   mechanics
                 </p>
