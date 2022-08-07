@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import usePattern from '../../core/hooks/usePattern';
 import Layout from '../../core/ui/layout/Layout';
 import { TextHeading } from '../../core/ui/shared/heading';

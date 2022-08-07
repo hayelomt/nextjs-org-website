@@ -5,7 +5,7 @@ import Icons from '../../../core/ui/utils/icons';
 
 const About = () => {
   const CardItem = () => (
-    <div className="flex h-full w-fit xs:w-[400px] flex-col overflow-hidden rounded-[20px] flex-shrink-0 ">
+    <div className="flex h-full w-fit xs:min-w-[400px] flex-col overflow-hidden rounded-[20px] flex-shrink-0 ">
       <div
         className="flex-1 bg-cover"
         style={{

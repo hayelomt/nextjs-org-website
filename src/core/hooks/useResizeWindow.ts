@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 const useResizeWindow = (cb: (width: number) => void) => {
   useEffect(() => {
     const listener = () => {
-      cb(window.screen.width);
+      cb(window.window.innerWidth);
     };
 
     window.addEventListener('resize', listener);
