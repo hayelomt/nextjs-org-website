@@ -102,7 +102,7 @@ const Header = ({
     <>
       <div className="flex lg:hidden justify-end w-full pr-4">
         <button onClick={() => setShowMenu(true)}>
-          <Icons.Menu />
+          <Icons.Menu className="h-6 w-6 text-link-text" />
         </button>
       </div>
     </>
@@ -149,9 +149,14 @@ const Header = ({
                 active={router.pathname === '/about'}
               />
               <DropLinkItem
-                label="Gallery"
-                url="/resources/galleries"
-                active={router.pathname === '/resources/galleries'}
+                label="Tenders"
+                url="/about/tenders"
+                active={router.pathname === '/about/tenders'}
+              />
+              <DropLinkItem
+                label="Vacancies"
+                url="/about/vacancies"
+                active={router.pathname === '/about/vacancies'}
               />
             </>
           </LinkDropItem>
@@ -176,19 +181,14 @@ const Header = ({
           >
             <>
               <DropLinkItem
+                label="Gallery"
+                url="/resources/galleries"
+                active={router.pathname === '/resources/galleries'}
+              />
+              <DropLinkItem
                 label="Publication"
                 url="/resources/publications"
                 active={router.pathname === '/resources/publications'}
-              />
-              <DropLinkItem
-                label="Tenders"
-                url="/resources/tenders"
-                active={router.pathname === '/resources/tenders'}
-              />
-              <DropLinkItem
-                label="Vacancies"
-                url="/resources/vacancies"
-                active={router.pathname === '/resources/vacancies'}
               />
               <DropLinkItem
                 label="Videos"

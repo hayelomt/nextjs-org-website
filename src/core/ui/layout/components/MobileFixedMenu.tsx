@@ -9,22 +9,22 @@ const MobileLinkItem = ({
   active = false,
   label,
   url,
+  isSubLink = false,
 }: {
   label: string;
   active?: boolean;
   url: string;
+  isSubLink?: boolean;
 }) => (
   <Link href={url}>
-    <h3 className="flex-shrink-0">
-      <a
-        className={clsx(
-          'cursor-pointer hover:text-red hover:font-semibold transition duration-150',
-          [active ? 'active-link' : 'inactive-link']
-        )}
-      >
-        {label}
-      </a>
-    </h3>
+    <a
+      className={clsx('cursor-pointer hover:text-red transition duration-150', [
+        active ? 'text-red font-medium' : 'text-link-text',
+        isSubLink ? 'text-[22px]' : 'text-[28px]',
+      ])}
+    >
+      {label}
+    </a>
   </Link>
 );
 
@@ -42,12 +42,16 @@ const MobileDropLink = ({
   return (
     <div className="flex flex-col items-center group transition-all duration-500">
       <div
-        className="flex items-center mb-2"
+        className="flex items-center mb-2 cursor-pointer"
         onClick={() => setShowSubLinks(!showSubLinks)}
       >
-        <h3 className={clsx([active ? 'active-link' : 'inactive-link'])}>
+        <p
+          className={clsx('text-[28px]', [
+            active ? 'text-red font-medium' : 'text-link-text',
+          ])}
+        >
           {label}
-        </h3>
+        </p>
         <span
           className={clsx('ml-1 mt-1 transition-transform duration-200', [
             showSubLinks ? 'transform rotate-90' : 'transform rotate-0',
@@ -59,7 +63,7 @@ const MobileDropLink = ({
       <AnimatePresence>
         {showSubLinks && (
           <motion.div
-            key="menu"
+            key={label}
             initial={{ y: '-50%', scale: 0.5, opacity: 0 }}
             animate={{
               scale: 1,
@@ -114,7 +118,7 @@ const MobileFixedMenu = ({
         {showMenu && (
           <motion.div
             key="mobile-menu"
-            className="backdrop"
+            className="backdrop "
             variants={backdropVariant}
             initial="hidden"
             animate="visible"
@@ -122,7 +126,7 @@ const MobileFixedMenu = ({
           >
             <div
               className={clsx(
-                'fixed top-0 bottom-0 left-0 right-0 h-full w-full lg:hidden  transition ease-in-out duration-300 origin-top text-link-text z-10 overflow-y-auto bg-white'
+                'fixed top-0 bottom-0 left-0 right-0 h-full w-full lg:hidden  transition ease-in-out duration-300 origin-top text-link-text z-10 bg-white'
               )}
             >
               <div className="flex flex-col h-full p-4  ">
@@ -131,12 +135,12 @@ const MobileFixedMenu = ({
                     onClick={() => setShowMenu(false)}
                     className="self-end"
                   >
-                    <Icons.CloseCircle className="w-10 h-10 cursor-pointer" />
+                    <Icons.CloseCircle className="w-6 h-6 cursor-pointer text-link-text" />
                   </button>
                 </div>
                 <motion.ul
                   variants={linkListVariant}
-                  className="flex-1 h-full flex flex-col justify-center items-center gap-y-6 min-h-[600px] p-4"
+                  className="flex-1 h-full flex flex-col overflow-y-auto items-center gap-y-4 min-h-[600px] p-4"
                 >
                   <motion.li variants={litItemVariant}>
                     <MobileLinkItem
@@ -152,14 +156,22 @@ const MobileFixedMenu = ({
                       subLinks={
                         <>
                           <MobileLinkItem
-                            label="About Us"
+                            label="Introduction"
                             url="/about"
                             active={router.pathname === '/about'}
+                            isSubLink
                           />
                           <MobileLinkItem
-                            label="Gallery"
-                            url="/resources/galleries"
-                            active={router.pathname === '/resources/galleries'}
+                            label="Tenders"
+                            url="/about/tenders"
+                            active={router.pathname === '/about/tenders'}
+                            isSubLink
+                          />
+                          <MobileLinkItem
+                            label="Vacancies"
+                            url="/about/vacancies"
+                            active={router.pathname === '/about/vacancies'}
+                            isSubLink
                           />
                         </>
                       }
@@ -193,26 +205,24 @@ const MobileFixedMenu = ({
                       subLinks={
                         <>
                           <MobileLinkItem
+                            label="Gallery"
+                            url="/resources/galleries"
+                            active={router.pathname === '/resources/galleries'}
+                            isSubLink
+                          />
+                          <MobileLinkItem
                             label="Publications"
                             url="/resources/publications"
                             active={
                               router.pathname === '/resources/publications'
                             }
-                          />
-                          <MobileLinkItem
-                            label="Tenders"
-                            url="/resources/tenders"
-                            active={router.pathname === '/resources/tenders'}
-                          />
-                          <MobileLinkItem
-                            label="Vacancies"
-                            url="/resources/vacancies"
-                            active={router.pathname === '/resources/vacancies'}
+                            isSubLink
                           />
                           <MobileLinkItem
                             label="Videos"
                             url="/resources/videos"
                             active={router.pathname === '/resources/videos'}
+                            isSubLink
                           />
                         </>
                       }

@@ -1,4 +1,4 @@
-import AboutPage from '../src/features/about/AboutPage';
+import AboutPage from '../../src/features/about/AboutPage';
 
 const About = () => {
   return <AboutPage />;
