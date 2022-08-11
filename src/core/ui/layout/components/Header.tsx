@@ -48,14 +48,13 @@ const Header = ({
       <div className="flex items-center flex-row-reverse justify-end">
         <a
           className={clsx(
-            'text-[16px] px-[20px]  py-[12px]  peer cursor-pointer',
-            [active ? 'text-red' : 'text-link-text hover:text-red']
+            'text-[16px] px-[20px]  py-[12px]  peer cursor-pointer text-link-text'
           )}
         >
           {label}
         </a>
         <div
-          className={clsx('h-[44px] w-[4px] rounded-r-2xl', [
+          className={clsx('h-[44px] w-[4px] rounded-r-2xl peer-hover:bg-red', [
             active ? 'bg-red' : 'bg-transparent',
           ])}
         ></div>
@@ -86,12 +85,14 @@ const Header = ({
           <Icons.ChevronDown className="w-[12px] h-fit" />
         </span>
       </div>
-      <div className="pt-2">
-        <div
-          className="absolute top-[100%] left-[50%] -translate-x-[50%] bg-white  py-[12px]  w-screen max-w-fit rounded-b-[14px] shadow-lg whitespace-nowrap hidden group-hover:flex transition-all duration-200 flex-col pr-[23px]"
-          style={{ boxShadow: '1px 3px 5px 1px rgba(0, 0, 0, 0.15)' }}
-        >
-          {children}
+      <div className="pt-0">
+        <div className="top-[100%] left-[50%] -translate-x-[50%] absolute hidden group-hover:flex transition-all duration-200">
+          <div
+            className=" bg-white  py-[12px]  w-screen max-w-fit rounded-b-[14px] shadow-lg whitespace-nowrap   flex-col pr-[23px] mt-[35px] "
+            style={{ boxShadow: '1px 3px 5px 1px rgba(0, 0, 0, 0.15)' }}
+          >
+            {children}
+          </div>
         </div>
       </div>
     </div>
