@@ -144,7 +144,7 @@ const Header = ({
           >
             <>
               <DropLinkItem
-                label="About Us"
+                label="Introduction"
                 url="/about"
                 active={router.pathname === '/about'}
               />

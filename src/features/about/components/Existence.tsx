@@ -1,12 +1,11 @@
-import clsx from 'clsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { Toggle } from '../../../core/ui/shared/buttons';
 
 const existVariant = {
-  hidden: { x: '100vw' },
+  hidden: { y: '30' },
   visible: {
-    x: 0,
+    y: 0,
     transition: { duration: 0.2, type: 'spring', stiffness: 80, damping: 14 },
   },
   exit: {
