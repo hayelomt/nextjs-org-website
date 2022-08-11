@@ -14,18 +14,21 @@ const Layout = ({ children, showHeaderShadow = false }: LayoutProps) => {
   return (
     <>
       <div className="main-container bg-white">
-        <MobileFixedMenu
-          showMenu={showMobileMenu}
-          setShowMenu={setShowMobileMenu}
-        />
-        <div className="h-[100%] overflow-y-auto">
-          <Header
+        {showMobileMenu ? (
+          <MobileFixedMenu
+            showMenu={showMobileMenu}
             setShowMenu={setShowMobileMenu}
-            showShadow={showHeaderShadow}
           />
-          {children}
-          <Footer />
-        </div>
+        ) : (
+          <div className="h-[100%] overflow-y-auto">
+            <Header
+              setShowMenu={setShowMobileMenu}
+              showShadow={showHeaderShadow}
+            />
+            {children}
+            <Footer />
+          </div>
+        )}
       </div>
     </>
   );
