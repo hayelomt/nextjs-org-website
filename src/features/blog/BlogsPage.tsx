@@ -20,7 +20,7 @@ const BlogsPage = () => {
               </p>
             </div>
           }
-          crumbLinks={['Home', 'Blogs & News']}
+          crumbLinks={[{ label: 'Home', url: '/' }, { label: 'Blogs & News' }]}
           imgUrl="/imgs/blog/heading.jpeg"
         />
 

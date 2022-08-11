@@ -13,7 +13,10 @@ const GalleryPage = () => {
                 Our Photo <strong className="text-red">Gallery</strong>
               </h1>
               <BreadCrumbs
-                links={['Home', 'Photo Gallery']}
+                links={[
+                  { label: 'Home', url: '/' },
+                  { label: 'Photo Gallery' },
+                ]}
                 linkColor="text-black"
                 crumbColor="text-black"
               />

@@ -8,7 +8,7 @@ const ContactUsPage = () => {
       <Layout>
         <ImageHeading
           title={<h1 className="mb-3 text-white">Contact Us</h1>}
-          crumbLinks={['Home', 'Contact Us']}
+          crumbLinks={[{ label: 'Home', url: '/' }, { label: 'Contact Us' }]}
           imgUrl="/imgs/contact/phone.jpeg"
         />
 

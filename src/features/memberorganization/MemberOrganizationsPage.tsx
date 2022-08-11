@@ -23,7 +23,10 @@ const MemberOrganizationsPage = () => {
               </p>
             </div>
           }
-          crumbLinks={['Home', 'Member Organizations']}
+          crumbLinks={[
+            { label: 'Home', url: '/' },
+            { label: 'Member Organizations' },
+          ]}
           imgUrl="/imgs/members/heading.jpeg"
         />
 

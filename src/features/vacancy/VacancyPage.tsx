@@ -30,7 +30,7 @@ const VacancyPage = () => {
               </p>
             </div>
           }
-          crumbLinks={['Resource', 'Vacancies']}
+          crumbLinks={[{ label: 'Home', url: '/' }, { label: 'Vacancies' }]}
         />
 
         <div className="px-global w-full pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px] bg-white">

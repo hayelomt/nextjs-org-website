@@ -2,13 +2,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import Icons from '../utils/icons';
 import { ReactElement } from 'react';
+import Link from 'next/link';
 
 const BreadCrumbs = ({
   links,
   linkColor = 'text-white',
   crumbColor = 'text-white',
 }: {
-  links: string[];
+  links: { label: string; url?: string }[];
   linkColor?: string;
   crumbColor?: string;
 }) => (
@@ -17,11 +18,13 @@ const BreadCrumbs = ({
       {links.map((link, i) =>
         i === links.length - 1 ? (
           <p className="body1 text-red" key={`crumb-${i}`}>
-            {link}
+            {link.label}
           </p>
         ) : (
           <div className="flex" key={`crumb-${i}`}>
-            <p className={clsx('body1 mr-[14px]', linkColor)}>{link}</p>
+            <Link href={link.url || ''}>
+              <a className={clsx('body1 mr-[14px]', linkColor)}>{link.label}</a>
+            </Link>
             <span className=" mt-[2px]">
               <Icons.ChevronRight
                 className={clsx('h-4 w-4 mr-[14px] mt-[2px]', crumbColor)}

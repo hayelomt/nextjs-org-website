@@ -18,7 +18,7 @@ const OurProjectPage = () => {
               Our <strong className="text-red">Projects</strong>
             </h1>
           }
-          crumbLinks={['Home', 'Projects']}
+          crumbLinks={[{ label: 'Home', url: '/' }, { label: 'Projects' }]}
           description={
             <div className="mt-[20px] mb-[20px] max-w-[736px] sm:mt-[32px] sm:mb-[40px]">
               <p className="body1 text-center text-light-text">

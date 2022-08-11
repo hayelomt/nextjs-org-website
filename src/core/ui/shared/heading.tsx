@@ -35,7 +35,7 @@ const ImageHeading = ({
   description,
 }: {
   imgUrl: string;
-  crumbLinks: string[];
+  crumbLinks: { label: string; url?: string }[];
   title: ReactElement;
   description?: ReactElement;
 }) => (
@@ -77,7 +77,7 @@ const TextHeading = ({
   title,
   description,
 }: {
-  crumbLinks: string[];
+  crumbLinks: { label: string; url?: string }[];
   title: ReactElement;
   description?: ReactElement;
 }) => (

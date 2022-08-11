@@ -20,7 +20,7 @@ const VideosPage = () => {
               </p>
             </div>
           }
-          crumbLinks={['Resources', 'Video']}
+          crumbLinks={[{ label: 'Home', url: '/' }, { label: 'Video' }]}
           imgUrl="/imgs/video/heading.jpeg"
         />
 

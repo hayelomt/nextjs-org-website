@@ -26,7 +26,7 @@ const TenderPage = () => {
               </p>
             </div>
           }
-          crumbLinks={['Resource', 'Tenders']}
+          crumbLinks={[{ label: 'Home', url: '/' }, { label: 'Tenders' }]}
         />
 
         <div className="px-global w-full pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px] bg-white">

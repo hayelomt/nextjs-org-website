@@ -26,7 +26,7 @@ const UpcomingEventsPage = () => {
               </p>
             </div>
           }
-          crumbLinks={['Home', 'Events']}
+          crumbLinks={[{ label: 'Home', url: '/' }, { label: 'Events' }]}
         />
 
         <div className="px-global w-full pb-[60px] sm:pb-[136px] bg-white">
