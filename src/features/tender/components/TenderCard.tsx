@@ -30,7 +30,7 @@ const TenderCard = ({
         <span className="mr-2 sm:mr-4">
           <Icons.Deadline />
         </span>
-        <p className="text-[14px] sm:text-[16px] font-barlow font-semibold mr-[20px] uppercase text-dark-text sm:mr-[32px]">
+        <p className="text-[14px] sm:text-[16px] font-barlow font-semibold mr-[20px] uppercase !text-[#001234] sm:mr-[32px]">
           DEADLINE
         </p>
         <p className="body1">{deadline}</p>

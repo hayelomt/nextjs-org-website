@@ -36,7 +36,7 @@ const VacancyCard = ({
             <span className="mr-2 sm:mr-4 ">
               <Icons.Deadline />
             </span>
-            <p className="uppercase text-[14px] sm:text-[16px] font-barlow text-dark-text !font-medium  mr-[20px] sm:mr-[32px]">
+            <p className="uppercase text-[14px] sm:text-[16px] font-barlow !text-[#001234] !font-medium  mr-[20px] sm:mr-[32px]">
               DEADLINE
             </p>
             <p className="body1">{deadline}</p>
@@ -45,7 +45,7 @@ const VacancyCard = ({
             <span className="mr-2 sm:mr-4 ">
               <Icons.Experience />
             </span>
-            <p className="uppercase text-[14px] sm:text-[16px] font-barlow text-dark-text !font-medium  mr-[20px] sm:mr-[32px]">
+            <p className="uppercase text-[14px] sm:text-[16px] font-barlow !text-[#001234] !font-medium  mr-[20px] sm:mr-[32px]">
               MINIMUM EXPERIENCE
             </p>
             <p className="body1">{minExperience}</p>
@@ -54,7 +54,7 @@ const VacancyCard = ({
             <span className="mr-2 sm:mr-4 ">
               <Icons.Positions />
             </span>
-            <p className="uppercase text-[14px] sm:text-[16px] font-barlow text-dark-text !font-medium  mr-[20px] sm:mr-[32px]">
+            <p className="uppercase text-[14px] sm:text-[16px] font-barlow !text-[#001234] !font-medium  mr-[20px] sm:mr-[32px]">
               AVAILABLE POSITIONS
             </p>
             <p className="body1">{positions}</p>
@@ -81,7 +81,7 @@ const VacancyCard = ({
             <span className="mr-2 sm:mr-4 ">
               <Icons.Deadline />
             </span>
-            <p className="uppercase text-[14px] sm:text-[16px] font-barlow text-white font-medium mr-[20px] sm:mr-[32px]">
+            <p className="uppercase text-[14px] sm:text-[16px] font-barlow text-white font-medium mr-[20px]  sm:mr-[32px]">
               DEADLINE
             </p>
             <p className="body1">{deadline}</p>

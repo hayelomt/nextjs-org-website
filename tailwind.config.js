@@ -18,6 +18,7 @@ module.exports = {
         'dark-text': '#001234',
         'dark-blue': '#261945',
         'link-text': '#001234',
+        'dark-black': '#001234',
       },
       fontFamily: {
         karla: ['Karla', defaultTheme.fontFamily.sans],

@@ -215,7 +215,7 @@ const Header = ({
     <>
       <div
         className={clsx('flex bg-white z-10 ', [showShadow && 'mb-2'])}
-        style={{ boxShadow: '0px 1px 10px 3px rgba(0, 0, 0, 0.08)' }}
+        style={{ boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)' }}
       >
         <div className="w-full"></div>
         <div className="max-w-global mx-auto flex w-full flex-shrink-0 items-center">
