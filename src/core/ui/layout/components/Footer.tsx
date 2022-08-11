@@ -1,9 +1,10 @@
+import Link from 'next/link';
 import Icons from '../../utils/icons';
 
 const Footer = () => {
   return (
     <>
-      <div className="px-global w-full bg-[#261945] pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px]">
+      <div className="px-global w-full bg-[#261945] pt-[35px] sm:pt-[72px]">
         <div className="max-w-global mx-auto flex w-full flex-col items-center justify-between gap-y-[20px] pt-[25px] sm:pt-[56px] lg:flex-row lg:items-start">
           <div className="flex max-w-[362px] flex-col items-center lg:items-start">
             <div className="mb-[16px] h-[62px] w-full max-w-[226px] bg-white sm:mb-[24px]"></div>
@@ -23,11 +24,13 @@ const Footer = () => {
                 className="h-[46px] w-full rounded-[10px] bg-white"
                 placeholder="Enter your email"
               />
-              <div className="center absolute top-[50%] right-[10px] h-[28px] w-[28px] -translate-y-[50%] rounded-[6px] bg-red"></div>
+              <div className="center absolute top-[50%] right-[10px] h-[28px] w-[28px] -translate-y-[50%] rounded-[6px] bg-red center">
+                <Icons.Telegram />
+              </div>
             </div>
           </div>
 
-          <div className="flex w-full max-w-[400px] flex-row justify-between gap-x-[60px]">
+          <div className="flex w-full max-w-[400px] flex-row justify-around gap-x-[60px]">
             <div className="flex flex-col text-white">
               <p className="mb-[16px] font-barlow text-[24px] text-white sm:mb-[24px]">
                 Quick Links
@@ -38,31 +41,41 @@ const Footer = () => {
                   <span className="mr-2">
                     <Icons.ArrowDouble />
                   </span>
-                  <p className="body1 font-medium">Home</p>
+                  <Link href="/">
+                    <a className="body1 font-medium">Home</a>
+                  </Link>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">
                     <Icons.ArrowDouble />
                   </span>
-                  <p className="body1 font-medium">About</p>
+                  <Link href="/about">
+                    <a className="body1 font-medium">About</a>
+                  </Link>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">
                     <Icons.ArrowDouble />
                   </span>
-                  <p className="body1 font-medium">Blogs</p>
+                  <Link href="/blogs">
+                    <a className="body1 font-medium">Blogs</a>
+                  </Link>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">
                     <Icons.ArrowDouble />
                   </span>
-                  <p className="body1 font-medium">Projects</p>
+                  <Link href="/projects">
+                    <a className="body1 font-medium">Projects</a>
+                  </Link>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">
                     <Icons.ArrowDouble />
                   </span>
-                  <p className="body1 font-medium">Events</p>
+                  <Link href="/upcoming-events">
+                    <a className="body1 font-medium">Events</a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -77,19 +90,25 @@ const Footer = () => {
                   <span className="mr-2">
                     <Icons.ArrowDouble />
                   </span>
-                  <p className="body1 font-medium">Our Gallery</p>
+                  <Link href="/resources/galleries">
+                    <a className="body1 font-medium">Our Gallery</a>
+                  </Link>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">
                     <Icons.ArrowDouble />
                   </span>
-                  <p className="body1 font-medium">Publications</p>
+                  <Link href="/resources/publications">
+                    <a className="body1 font-medium">Publications</a>
+                  </Link>
                 </div>
                 <div className="flex items-center">
                   <span className="mr-2">
                     <Icons.ArrowDouble />
                   </span>
-                  <p className="body1 font-medium">Videos</p>
+                  <Link href="/resources/videos">
+                    <a className="body1 font-medium">Videos</a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -102,8 +121,12 @@ const Footer = () => {
               </span>
               <div className="flex flex-col">
                 <p className="subheading mb-[10px]">Call Us</p>
-                <p className="body1 text-white">011-859-624-1</p>
-                <p className="body1 text-white">011-859-624-2</p>
+                <a href="tel:+251118596241" className="body1 text-white">
+                  011-859-624-1
+                </a>
+                <a href="tel:+251118596242" className="body1 text-white">
+                  011-859-624-2
+                </a>
               </div>
             </div>
 
@@ -113,7 +136,12 @@ const Footer = () => {
               </span>
               <div className="flex flex-col">
                 <p className="subheading mb-[10px]">Email Us</p>
-                <p className="body1 text-white">info@corhaethiopia.org</p>
+                <a
+                  href="mailto:info@corhaethiopia.org"
+                  className="body1 text-white"
+                >
+                  info@corhaethiopia.org
+                </a>
               </div>
             </div>
 
@@ -130,6 +158,52 @@ const Footer = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="flex flex-col xs:flex-row gap-y-2 xs:gap-y-0 items-center justify-between max-w-global mx-auto mt-[18px] md:mt-[38px] bg-[#402A74] p-[14px] md:p-[26px] w-full ">
+          <p className="text-[18px] text-white font-karla">
+            © Copyright 2022 <span className="text-red">CORHA</span> All Rights
+            Reserved.
+          </p>
+
+          <div className="flex bg-brand px-6 py-2 gap-x-4 rounded-[20px]">
+            <div className="flex gap-x-4">
+              <div className="h-[24px] w-[24px] rounded-full bg-brand">
+                <a href="#">
+                  <Icons.FacebookFilled />
+                </a>
+              </div>
+              <div className="h-[24px] w-[24px] rounded-full bg-brand">
+                <a href="#">
+                  <Icons.TwitterFilled />
+                </a>
+              </div>
+              <div className="h-[24px] w-[24px] rounded-full bg-brand">
+                <a href="#">
+                  <Icons.LinkedInFilled />
+                </a>
+              </div>
+              <div className="h-[24px] w-[24px] rounded-full bg-brand">
+                <a href="#">
+                  <Icons.YoutubeFilled />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-global mx-auto justify-end flex py-[16px] md:py-[28px]">
+          <p className="text-[14px] text-white font-karla">
+            Powered by{' '}
+            <a
+              href="https://madtechet.com"
+              target="_blank"
+              className="text-red"
+              rel="noreferrer"
+            >
+              M.A.D Technologies
+            </a>
+          </p>
         </div>
       </div>
     </>
