@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import '../src/core/styles/global.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import '../src/core/styles/custom.css';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
