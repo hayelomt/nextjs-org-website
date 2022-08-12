@@ -1,9 +1,19 @@
 import Layout from '../../core/ui/layout/Layout';
+import PaginationGroup from '../../core/ui/pagination/group';
 import { PaginationButtons } from '../../core/ui/shared/buttons';
 import { ImageHeading } from '../../core/ui/shared/heading';
+import { Paginated } from '../../core/ui/utils/types';
 import VideoCard from './components/VideoCard';
+import useVideoController from './hooks/useVideoController';
+import { Video } from './video';
 
-const VideosPage = () => {
+const VideosPage = ({ videosInit }: { videosInit: Paginated<Video> }) => {
+  const {
+    data: videos,
+    fetchData,
+    ...pagination
+  } = useVideoController(videosInit);
+
   return (
     <>
       <Layout>
@@ -27,21 +37,32 @@ const VideosPage = () => {
         <div className="px-global w-full pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px]">
           <div className="max-w-global mx-auto flex flex-col items-center">
             <div className="xs:w-fit grid w-full grid-cols-1 place-items-center gap-[25px] sm:grid-cols-2 lg:gap-[35px] xl:grid-cols-3 xl:gap-[45px] mb-[25px] sm:mb-[50px]">
-              {Array(10)
-                .fill(null)
-                .map((_, i) => (
-                  <VideoCard
-                    key={`blog-card-${i}`}
-                    title="Lorem ipsum dolor sit amet, consectetur"
-                    embedUrl="https://sdfsf"
-                    tag="contraception"
-                    date="12 July, 2022"
-                    imgUrl="/imgs/home/talk.jpeg"
-                  />
-                ))}
+              {videos.map((video) => (
+                <VideoCard
+                  key={video.id}
+                  title={video.title}
+                  embedUrl={video.link}
+                  tag={video.tag}
+                  date={video.date}
+                  link={video.link}
+                />
+              ))}
             </div>
 
-            <PaginationButtons />
+            <div className="w-full center gap-x-[14px] max-w-full overflow-x-auto">
+              <PaginationGroup
+                buttonsLimit={5}
+                currentPage={pagination.currentPage}
+                pageCount={Math.ceil(pagination.total / pagination.perPage)}
+                disabled={videos.length === 0 || pagination.loading}
+                onPageChange={(page) => {
+                  fetchData(
+                    'videos',
+                    `?page=${page}&limit=${pagination.perPage}`
+                  );
+                }}
+              />
+            </div>
           </div>
         </div>
       </Layout>
