@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import { apiInstance } from '../src/core/services/api';
 import { UpcomingEvent } from '../src/features/upcomingevents/upcoming-event';
 import UpcomingEventsPage from '../src/features/upcomingevents/UpcomingEventsPage';
@@ -8,7 +9,12 @@ type EventProps = {
 };
 
 const UpcomingEvents = ({ events }: EventProps & NextPage) => {
-  return <UpcomingEventsPage events={events} />;
+  return (
+    <>
+      <NextSeo title="CORHA | Upcoming Events" />
+      <UpcomingEventsPage events={events} />
+    </>
+  );
 };
 
 export default UpcomingEvents;

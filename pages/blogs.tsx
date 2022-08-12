@@ -1,4 +1,5 @@
 import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 import { apiInstance } from '../src/core/services/api';
 import { Paginated } from '../src/core/ui/utils/types';
 import { Blog } from '../src/features/blog/blog';
@@ -9,7 +10,12 @@ type BlogProps = {
 };
 
 const Blog = ({ blogs }: BlogProps & NextPage) => {
-  return <BlogsPage blogsInit={blogs} />;
+  return (
+    <>
+      <NextSeo title="CORHA | Blogs" />
+      <BlogsPage blogsInit={blogs} />
+    </>
+  );
 };
 
 export default Blog;

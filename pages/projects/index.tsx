@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo';
 import { apiInstance } from '../../src/core/services/api';
 import { Paginated } from '../../src/core/ui/utils/types';
 import OurProjectPage from '../../src/features/ourprojects/OurProjectsPage';
@@ -8,7 +9,12 @@ type ProjectProps = {
 };
 
 const OurProjects = ({ projects }: ProjectProps) => {
-  return <OurProjectPage projects={projects} />;
+  return (
+    <>
+      <NextSeo title="CORHA | Projects" />
+      <OurProjectPage projects={projects} />
+    </>
+  );
 };
 
 export default OurProjects;
