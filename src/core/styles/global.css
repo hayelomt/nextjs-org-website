@@ -73,7 +73,7 @@
     @apply flex items-center justify-center;
   }
   .btn {
-    @apply px-[18px] sm:px-[32px] py-[10px] sm:py-[14.5px] text-white bg-red rounded-[26px] text-button center;
+    @apply px-[18px] sm:px-[32px] py-[10px] sm:py-[14.5px] text-white bg-red rounded-[26px] text-button center disabled:bg-opacity-60;
   }
   .active-link {
     @apply text-red font-semibold;
@@ -83,6 +83,9 @@
   }
   .small-aspect {
     aspect-ratio: 10 / 8;
+  }
+  .error-text {
+    @apply text-red text-[14px] font-barlow pl-2;
   }
 }
 

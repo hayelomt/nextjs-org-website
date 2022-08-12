@@ -17,3 +17,13 @@ export type Paginated<T> = {
   per_page: number;
   data: T[];
 };
+
+export type ValidationError = {
+  errors: Record<string, string>;
+};
+
+export type ValidationHandler = (err: ValidationError) => void;
+
+export type ErrorHandler = (err: string) => void;
+
+export type SuccessHandler = (data: any, status?: number) => void;

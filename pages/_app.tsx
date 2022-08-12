@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import type { AppProps } from 'next/app';
+import { ToastContainer } from 'react-toastify';
 import '../src/core/styles/global.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'react-toastify/dist/ReactToastify.css';
 import '../src/core/styles/custom.css';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
@@ -21,6 +23,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       }}
     >
       <Component {...pageProps} />
+      <ToastContainer />
     </motion.div>
   );
 }
