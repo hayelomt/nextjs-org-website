@@ -16,7 +16,7 @@ const OtherSayCard = ({
       <div className="flex">
         <div className="mr-[14px] h-[65px] w-[65px] rounded-full border-[3px] border-[#00249C4D] sm:mr-[20px]">
           <img
-            className="w-full h-full object-cover"
+            className="w-full h-full rounded-full object-cover"
             src={imgUrl}
             alt="profile image"
           />

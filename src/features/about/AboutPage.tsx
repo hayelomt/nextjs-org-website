@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Layout from '../../core/ui/layout/Layout';
 import { BreadCrumbs } from '../../core/ui/shared';
+import { OtherSay, Team } from './about';
 import AboutOthersSay from './components/AboutOthersSay';
 import AboutTeam from './components/AboutTeam';
 import Existence from './components/Existence';
@@ -32,7 +33,13 @@ const descriptionVariant = {
   },
 };
 
-const AboutPage = () => {
+const AboutPage = ({
+  teams,
+  otherSays,
+}: {
+  teams: Team[];
+  otherSays: OtherSay[];
+}) => {
   const crumbLinks = [{ label: 'Home', url: '/' }, { label: 'About Us' }];
 
   return (
@@ -77,8 +84,8 @@ const AboutPage = () => {
 
         <Existence />
         <Stats />
-        <AboutTeam />
-        <AboutOthersSay />
+        <AboutTeam teams={teams} />
+        <AboutOthersSay otherSays={otherSays} />
       </Layout>
     </>
   );

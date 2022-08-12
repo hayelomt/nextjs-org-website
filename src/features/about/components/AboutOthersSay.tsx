@@ -1,8 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import OtherSayCard from './OtherSayCard';
+import { OtherSay } from '../about';
+import ImageUtils from '../../../core/ui/utils/image';
 
-const AboutOthersSay = () => {
+const AboutOthersSay = ({ otherSays }: { otherSays: OtherSay[] }) => {
   return (
     <>
       <div className="px-global w-full pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px] bg-gray-bg">
@@ -41,18 +43,16 @@ const AboutOthersSay = () => {
               }}
               className="flex items-center justify-center max-w-global mx-auto"
             >
-              {Array(10)
-                .fill(null)
-                .map((_, i) => (
-                  <SwiperSlide key={`'other'-${i}`} className=" center">
-                    <OtherSayCard
-                      imgUrl="/imgs/gallery/lens.png"
-                      name={`${i + 1} Alloy`}
-                      position="Accountant"
-                      content=" Maecenas suscipit in nulla tristique pretium. Praesent eget tellusMaecenas suscipit in nulla tristique pretium. Praesent eget tellusMaecenas suscipit in nulla tristique pretium. Praesent eget tellus "
-                    />
-                  </SwiperSlide>
-                ))}
+              {otherSays.map((i) => (
+                <SwiperSlide key={i.id} className=" center">
+                  <OtherSayCard
+                    imgUrl={ImageUtils.getMediaUrl(i.media[0])}
+                    name={i.name}
+                    position={i.position}
+                    content={i.testimony}
+                  />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>

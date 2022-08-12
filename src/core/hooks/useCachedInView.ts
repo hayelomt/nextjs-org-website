@@ -7,7 +7,6 @@ const useCachedInView = () => {
   const [viewShown, setViewShown] = useState(false);
 
   useEffect(() => {
-    console.log('in view', inView);
     if (inView) {
       setViewShown(true);
     }
