@@ -1,5 +1,5 @@
 import axios from 'axios';
-import appConstants from '../ui/utils/constants';
+import appConstants from '../utils/constants';
 
 const apiInstance = axios.create({
   baseURL: `${appConstants.apiUrl}/`,

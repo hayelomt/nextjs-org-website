@@ -10,3 +10,10 @@ export type Model = {
   created_at: string;
   updated_at: string;
 };
+
+export type Paginated<T> = {
+  current_page: number;
+  total: number;
+  per_page: number;
+  data: T[];
+};

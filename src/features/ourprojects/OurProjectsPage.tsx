@@ -1,13 +1,25 @@
 import { useState } from 'react';
 import Layout from '../../core/ui/layout/Layout';
-import { PaginationButtons, Toggle } from '../../core/ui/shared/buttons';
+import PaginationGroup from '../../core/ui/pagination/group';
+import { Toggle } from '../../core/ui/shared/buttons';
 import { TextHeading } from '../../core/ui/shared/heading';
+import { Paginated } from '../../core/ui/utils/types';
 import OurProjectCard from './components/OurProjectCard';
+import useProjectController from './hooks/useProjectController';
+import { Project } from './project';
 
-const OurProjectPage = () => {
-  const [topic, setTopic] = useState<
-    'all' | 'children' | 'std' | 'contraception'
-  >('all');
+const OurProjectPage = ({
+  projects: initProjects,
+}: {
+  projects: Paginated<Project>;
+}) => {
+  const {
+    tag,
+    setTag,
+    data: projects,
+    fetchData,
+    ...pagination
+  } = useProjectController(initProjects);
 
   return (
     <>
@@ -36,38 +48,59 @@ const OurProjectPage = () => {
           <div className="max-w-global mx-auto">
             <div className="mb-[35px] sm:mb-[70px] flex flex-wrap items-center gap-[12px]  md:gap-[20px] max-w-full overflow-x-auto py-2 justify-center">
               <Toggle
-                active={topic === 'all'}
-                onClick={() => setTopic('all')}
+                active={tag === 'all' || tag === ''}
+                onClick={() => {
+                  setTag('all');
+                }}
                 label="ALL"
               />
               <Toggle
-                active={topic === 'children'}
-                onClick={() => setTopic('children')}
+                active={tag === 'children'}
+                onClick={() => {
+                  setTag('children');
+                }}
                 label="CHILDREN"
               />
               <Toggle
-                active={topic === 'std'}
-                onClick={() => setTopic('std')}
+                active={tag === 'std'}
+                onClick={() => {
+                  setTag('std');
+                }}
                 label="STD"
               />
               <Toggle
-                active={topic === 'contraception'}
-                onClick={() => setTopic('contraception')}
+                active={tag === 'contraception'}
+                onClick={() => {
+                  setTag('contraception');
+                }}
                 label="CONTRACEPTION"
               />
             </div>
 
             <div className="w-full mb-[25px] sm:mb-[58px]">
               <div className="grid grid-cols-1 xl:grid-cols-2 gap-[40px]">
-                {Array(10)
-                  .fill(null)
-                  .map((_, i) => (
-                    <OurProjectCard key={`project-${i}`} />
-                  ))}
+                {projects.map((project) => (
+                  <OurProjectCard project={project} key={project.id} />
+                ))}
               </div>
             </div>
 
-            <PaginationButtons />
+            <div className="w-full center gap-x-[14px] max-w-full overflow-x-auto">
+              <PaginationGroup
+                buttonsLimit={5}
+                currentPage={pagination.currentPage}
+                pageCount={Math.ceil(pagination.total / pagination.perPage)}
+                disabled={pagination.loading}
+                onPageChange={(page) => {
+                  fetchData(
+                    'projects',
+                    `?page=${page}&limit=${pagination.perPage}&tag=${
+                      tag === 'all' ? '' : tag
+                    }`
+                  );
+                }}
+              />
+            </div>
           </div>
         </div>
       </Layout>

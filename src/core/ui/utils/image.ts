@@ -1,4 +1,4 @@
-import appConstants from './constants';
+import appConstants from '../../utils/constants';
 import { Media } from './types';
 
 const ImageUtils = {

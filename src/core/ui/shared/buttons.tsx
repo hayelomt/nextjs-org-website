@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Link from 'next/link';
 import Icons from '../utils/icons';
 
 const ArrowedButton = ({
@@ -29,6 +30,39 @@ const ArrowedButton = ({
       <Icons.ArrowRight className="w-4 h-4" />
     </span>
   </button>
+);
+
+const ArrowedLink = ({
+  label,
+  className = '',
+  arrowClassName = '',
+  href,
+  as,
+}: {
+  label: string;
+  className?: string;
+  arrowClassName?: string;
+  href: string;
+  as: string;
+}) => (
+  <Link href={href} as={as}>
+    <a
+      className={clsx(
+        'btn hover:shadow-xl hover:-translate-y-1 transition duration-200 w-fit',
+        className
+      )}
+    >
+      {label}
+      <span
+        className={clsx(
+          'ml-[10px] h-[28px] w-[28px] rounded-full center bg-white text-red flex-shrink-0',
+          arrowClassName
+        )}
+      >
+        <Icons.ArrowRight className="w-4 h-4" />
+      </span>
+    </a>
+  </Link>
 );
 
 const PaginationButtons = () => (
@@ -72,4 +106,4 @@ const Toggle = ({
   </button>
 );
 
-export { ArrowedButton, PaginationButtons, Toggle };
+export { ArrowedButton, ArrowedLink, PaginationButtons, Toggle };
