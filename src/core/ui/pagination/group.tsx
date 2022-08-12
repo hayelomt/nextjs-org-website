@@ -1,4 +1,5 @@
 import React from 'react';
+import Icons from '../utils/icons';
 import PaginationButton from './button';
 
 type PaginationGroupProps = {
@@ -102,7 +103,11 @@ const PaginationGroup: React.FC<PaginationGroupProps> = ({
               Math.max(0, currentPage - Math.ceil(buttonsLimit / JumpItems))
             )
           }
-          page={<p>&#60;&#60;</p>}
+          page={
+            <p>
+              <Icons.Prev />
+            </p>
+          }
           disabled={disabled || currentPage === 1}
         />
         {renderLinks()}
@@ -116,7 +121,11 @@ const PaginationGroup: React.FC<PaginationGroupProps> = ({
               )
             )
           }
-          page={<p> &#62;&#62;</p>}
+          page={
+            <p>
+              <Icons.Next />{' '}
+            </p>
+          }
           disabled={disabled || currentPage === pageCount}
         />
       </div>
