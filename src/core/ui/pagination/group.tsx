@@ -103,7 +103,7 @@ const PaginationGroup: React.FC<PaginationGroupProps> = ({
             )
           }
           page={<p>&#60;&#60;</p>}
-          disabled={currentPage === 1}
+          disabled={disabled || currentPage === 1}
         />
         {renderLinks()}
 
@@ -117,7 +117,7 @@ const PaginationGroup: React.FC<PaginationGroupProps> = ({
             )
           }
           page={<p> &#62;&#62;</p>}
-          disabled={currentPage === pageCount}
+          disabled={disabled || currentPage === pageCount}
         />
       </div>
     </>

@@ -1,9 +1,18 @@
 import Layout from '../../core/ui/layout/Layout';
-import { PaginationButtons } from '../../core/ui/shared/buttons';
+import PaginationGroup from '../../core/ui/pagination/group';
 import { ImageHeading } from '../../core/ui/shared/heading';
+import { Paginated } from '../../core/ui/utils/types';
+import { Blog } from './blog';
 import BlogCard from './components/BlogCard';
+import useBlogController from './hooks/useBlogController';
 
-const BlogsPage = () => {
+const BlogsPage = ({ blogsInit }: { blogsInit: Paginated<Blog> }) => {
+  const {
+    data: blogs,
+    fetchData,
+    ...pagination
+  } = useBlogController(blogsInit);
+
   return (
     <>
       <Layout>
@@ -27,21 +36,24 @@ const BlogsPage = () => {
         <div className="px-global w-full pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px]">
           <div className="max-w-global mx-auto flex flex-col items-center">
             <div className="xs:w-fit grid w-full grid-cols-1 place-items-center gap-[25px] sm:grid-cols-2 lg:gap-[35px] xl:grid-cols-3 xl:gap-[45px] mb-[25px] sm:mb-[50px]">
-              {Array(10)
-                .fill(null)
-                .map((_, i) => (
-                  <BlogCard
-                    key={`blog-card-${i}`}
-                    title="Lorem ipsum dolor sit amet, consectetur"
-                    description="Maecenas suscipit in nulla tristique pretium. Praesent eget tellus nibh. Praesent mi orci, fringilla sed est ac, efficitur auctor velit. Fusc"
-                    tag="contraception"
-                    date="12 July, 2022"
-                    imgUrl="/imgs/home/talk.jpeg"
-                  />
-                ))}
+              {blogs.map((blog) => (
+                <BlogCard key={blog.id} blog={blog} />
+              ))}
             </div>
-
-            <PaginationButtons />
+            <div className="w-full center gap-x-[14px] max-w-full overflow-x-auto">
+              <PaginationGroup
+                buttonsLimit={5}
+                currentPage={pagination.currentPage}
+                pageCount={Math.ceil(pagination.total / pagination.perPage)}
+                disabled={blogs.length === 0 || pagination.loading}
+                onPageChange={(page) => {
+                  fetchData(
+                    'blogs',
+                    `?page=${page}&limit=${pagination.perPage}`
+                  );
+                }}
+              />
+            </div>
           </div>
         </div>
       </Layout>
