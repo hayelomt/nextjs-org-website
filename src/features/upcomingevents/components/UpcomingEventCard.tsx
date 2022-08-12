@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import { ArrowedButton } from '../../../core/ui/shared/buttons';
 import Icons from '../../../core/ui/utils/icons';
 
@@ -33,7 +34,9 @@ const UpcomingEventCard = ({
           <span className="mr-[11px]">
             <Icons.Calendar className="h-4 w-4 text-red" />
           </span>
-          <p className="subtitle text-light-text">{date}</p>
+          <p className="subtitle text-light-text">
+            {DateTime.fromISO(date).toLocaleString(DateTime.DATE_FULL)}
+          </p>
         </div>
         <h3 className="mb-2 line-clamp-2 !font-semibold">{title}</h3>
         <p className="body1 line-clamp-4 text-light-text">{description}</p>
@@ -56,7 +59,9 @@ const UpcomingEventCard = ({
           <span className="mr-[11px]">
             <Icons.Calendar className="h-4 w-4 text-white" />
           </span>
-          <p className="subtitle">{date}</p>
+          <p className="subtitle">
+            {DateTime.fromISO(date).toLocaleString(DateTime.DATE_FULL)}
+          </p>
         </div>
         <h3 className="mb-2 line-clamp-2 !font-semibold">{title}</h3>
         <p className="body1 line-clamp-4">{description}</p>

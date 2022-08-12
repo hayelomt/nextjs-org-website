@@ -1,10 +1,12 @@
 import usePattern from '../../core/hooks/usePattern';
 import Layout from '../../core/ui/layout/Layout';
 import { TextHeading } from '../../core/ui/shared/heading';
+import ImageUtils from '../../core/ui/utils/image';
 import UpcomingEventCard from './components/UpcomingEventCard';
+import { UpcomingEvent } from './upcoming-event';
 
-const UpcomingEventsPage = () => {
-  const { patterns } = usePattern(6);
+const UpcomingEventsPage = ({ events }: { events: UpcomingEvent[] }) => {
+  const { patterns } = usePattern(events.length || 0);
 
   return (
     <>
@@ -33,19 +35,16 @@ const UpcomingEventsPage = () => {
           <div className="max-w-global mx-auto flex flex-col items-center">
             <div className="w-full">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-[23px]">
-                {Array(6)
-                  .fill(null)
-                  .map((_, i) => (
-                    <UpcomingEventCard
-                      key={`upcoming-${i}`}
-                      date="14 August, 2022"
-                      title="Fund Raising Event For Children"
-                      description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-               semper arcu mauris, eget iaculis sem scelerisque eu"
-                      imgUrl="/imgs/blog/heading.jpeg"
-                      type={patterns[i] === 0 ? 'image' : 'plain'}
-                    />
-                  ))}
+                {events.map((event, i) => (
+                  <UpcomingEventCard
+                    key={event.id}
+                    date={event.date}
+                    title={event.title}
+                    description={event.description}
+                    imgUrl={ImageUtils.getMediaUrl(event.media[0])}
+                    type={patterns[i] === 0 ? 'image' : 'plain'}
+                  />
+                ))}
               </div>
             </div>
           </div>
