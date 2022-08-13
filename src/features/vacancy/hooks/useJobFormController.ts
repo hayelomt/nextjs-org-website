@@ -41,7 +41,7 @@ export const useCreateJobFormController = (
 
   const formik = useFormik<VacancyCreate>({
     initialValues,
-    // validationSchema,
+    validationSchema,
     onSubmit: async (value, { setFieldError }) => {
       const data = parseFormQuery(value);
 
