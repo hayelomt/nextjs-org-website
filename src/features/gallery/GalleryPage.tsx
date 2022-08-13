@@ -1,8 +1,22 @@
 import Layout from '../../core/ui/layout/Layout';
+import PaginationGroup from '../../core/ui/pagination/group';
 import { BreadCrumbs } from '../../core/ui/shared';
+import { Paginated } from '../../core/ui/utils/types';
 import GalleryImages from './components/GalleryImages';
+import { Gallery } from './gallery';
+import useGalleriesController from './hooke/useGalleriesController';
 
-const GalleryPage = () => {
+const GalleryPage = ({
+  galleriesInit,
+}: {
+  galleriesInit: Paginated<Gallery>;
+}) => {
+  const {
+    data: galleries,
+    fetchData,
+    ...pagination
+  } = useGalleriesController(galleriesInit);
+
   return (
     <>
       <Layout>
@@ -41,27 +55,22 @@ const GalleryPage = () => {
           </div>
 
           <div className="py-[40px] sm:py-[72px]">
-            <GalleryImages />
+            <GalleryImages galleries={galleries} />
           </div>
 
-          <div className="max-w-global mx-auto flex flex-col items-center">
-            <div className="w-full center gap-x-[14px] max-w-full overflow-x-auto">
-              <button className="bg-dark-blue w-[40px] h-[40px] rounded-[12px] center text-white font-barlow ">
-                &#60;&#60;
-              </button>
-              <button className="bg-dark-blue w-[40px] h-[40px] rounded-[12px] center text-white">
-                1
-              </button>
-              <button className="bg-red w-[40px] h-[40px] rounded-[12px] center text-white">
-                2
-              </button>
-              <button className="bg-dark-blue w-[40px] h-[40px] rounded-[12px] center text-white">
-                3
-              </button>
-              <button className="bg-dark-blue w-[40px] h-[40px] rounded-[12px] center text-white">
-                &#62;&#62;
-              </button>
-            </div>
+          <div className="w-full center gap-x-[14px] max-w-full overflow-x-auto">
+            <PaginationGroup
+              buttonsLimit={5}
+              currentPage={pagination.currentPage}
+              pageCount={Math.ceil(pagination.total / pagination.perPage)}
+              disabled={pagination.loading}
+              onPageChange={(page) => {
+                fetchData(
+                  'galleries',
+                  `?page=${page}&limit=${pagination.perPage}`
+                );
+              }}
+            />
           </div>
         </div>
       </Layout>
