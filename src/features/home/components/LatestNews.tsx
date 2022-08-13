@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import BlogCard from '../../blog/components/BlogCard';
+import { Blog } from '../../blog/blog';
 
-const LatestNews = () => {
+const LatestNews = ({ blogs }: { blogs: Blog[] }) => {
   return (
     <>
       <section className="px-global bg-white">
@@ -42,23 +43,11 @@ const LatestNews = () => {
                 }}
                 className="flex items-center justify-center max-w-global mx-auto"
               >
-                {Array(4)
-                  .fill(null)
-                  .map((_, i) => (
-                    <SwiperSlide
-                      key={`blog-card-${i}`}
-                      className=" py-4 center"
-                    >
-                      <BlogCard
-                        title="Lorem ipsum dolor sit amet, consectetur"
-                        description="Maecenas suscipit in nulla tristique pretium. Praesent eget tellus nibh.
-                  Praesent mi orci, fringilla sed est ac, efficitur auctor velit. Fusc"
-                        tag="contraception"
-                        date="12 July, 2022"
-                        imgUrl="/imgs/home/talk.jpeg"
-                      />
-                    </SwiperSlide>
-                  ))}
+                {blogs.map((blog) => (
+                  <SwiperSlide key={blog.id} className=" pt-6 center pb-2">
+                    <BlogCard blog={blog} />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
           </div>

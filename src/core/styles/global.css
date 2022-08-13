@@ -86,6 +86,9 @@
   .small-aspect {
     aspect-ratio: 10 / 8;
   }
+  .aspect-about {
+    aspect-ratio: 13 / 12;
+  }
   .error-text {
     @apply text-red text-[14px] font-barlow pl-2;
   }

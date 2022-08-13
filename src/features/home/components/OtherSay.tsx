@@ -1,9 +1,11 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import OtherSayCard from '../../about/components/OtherSayCard';
-import { ArrowedButton } from '../../../core/ui/shared/buttons';
+import { ArrowedButton, ArrowedLink } from '../../../core/ui/shared/buttons';
+import { OtherSay } from '../../about/about';
+import ImageUtils from '../../../core/ui/utils/image';
 
-const OtherSay = () => {
+const OtherSay = ({ otherSays }: { otherSays: OtherSay[] }) => {
   return (
     <>
       <div className="px-global bg-gray-bg">
@@ -18,7 +20,7 @@ const OtherSay = () => {
               nibh. Praesent mi orci, fringilla sed est ac, efficitur
             </p>
             <div>
-              <ArrowedButton onClick={() => {}} label="View More" />
+              <ArrowedLink label="View More" href="/about" as="/about" />
             </div>
           </div>
 
@@ -41,18 +43,16 @@ const OtherSay = () => {
                 }}
                 className="flex items-center justify-center max-w-global mx-auto"
               >
-                {Array(5)
-                  .fill(null)
-                  .map((_, i) => (
-                    <SwiperSlide key={`'other'-${i}`} className=" center">
-                      <OtherSayCard
-                        imgUrl="/imgs/gallery/lens.png"
-                        name={`${i + 1} Alloy`}
-                        position="Accountant"
-                        content=" Maecenas suscipit in nulla tristique pretium. Praesent eget tellusMaecenas suscipit in nulla tristique pretium. Praesent eget tellusMaecenas suscipit in nulla tristique pretium. Praesent eget tellus "
-                      />
-                    </SwiperSlide>
-                  ))}
+                {otherSays.map((otherSay) => (
+                  <SwiperSlide key={otherSay.id} className=" center">
+                    <OtherSayCard
+                      imgUrl={ImageUtils.getMediaUrl(otherSay.media[0])}
+                      name={otherSay.name}
+                      position={otherSay.position}
+                      content={otherSay.testimony}
+                    />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
           </div>

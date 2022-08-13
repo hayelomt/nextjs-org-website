@@ -11,7 +11,7 @@ const OtherSayCard = ({
   position: string;
   content: string;
 }) => (
-  <div className="flex min-w-fit h-fit max-w-[392px] flex-col rounded-[24px] bg-white py-[26px] px-[18px] xs:min-w-[392px] sm:py-[42px] sm:px-[36px]">
+  <div className="flex min-w-fit h-full max-w-[392px] flex-col rounded-[24px] bg-white py-[26px] px-[18px] xs:min-w-[392px] sm:py-[42px] sm:px-[36px]">
     <div className="mb-[20px] flex w-full items-center justify-between sm:mb-[32px]">
       <div className="flex">
         <div className="mr-[14px] h-[65px] w-[65px] rounded-full border-[3px] border-[#00249C4D] sm:mr-[20px]">

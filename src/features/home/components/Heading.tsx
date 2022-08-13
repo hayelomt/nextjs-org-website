@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import { ArrowedButton } from '../../../core/ui/shared/buttons';
+import { ArrowedButton, ArrowedLink } from '../../../core/ui/shared/buttons';
 import Icons from '../../../core/ui/utils/icons';
 
 const headingVariant = {
@@ -32,10 +32,11 @@ const Heading = () => {
           management and resource mobilization for its member organization.
         </p>
         <div className="flex gap-[12px] md:gap-[18px]">
-          <ArrowedButton label="Learn More" onClick={() => {}} />
-          <ArrowedButton
+          <ArrowedLink label="Lean More" href="/about" as="/about" />
+          <ArrowedLink
             label="Our Projects"
-            onClick={() => {}}
+            href="/projects"
+            as="/projects"
             className="!bg-brand"
           />
         </div>
@@ -104,7 +105,7 @@ const Heading = () => {
         }}
       >
         <div className="max-w-global pt-[100px] sm:pt-[205px] pb-[110px] sm:pb-[187px] mx-auto flex flex-row justify-between items-center">
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence exitBeforeEnter key={contentIndex}>
             <motion.div
               key="heading-content"
               variants={headingVariant}
@@ -112,9 +113,7 @@ const Heading = () => {
               animate="visible"
               exit="exit"
             >
-              {contentIndex === 0 && headingContent[0]}
-              {contentIndex === 1 && headingContent[1]}
-              {contentIndex === 2 && headingContent[2]}
+              {headingContent[contentIndex]}
             </motion.div>
           </AnimatePresence>
 

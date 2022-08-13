@@ -1,7 +1,35 @@
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 import { ArrowedButton } from '../../../core/ui/shared/buttons';
 import Icons from '../../../core/ui/utils/icons';
+import ImageUtils from '../../../core/ui/utils/image';
+import { Organization } from '../../memberorganization/organization';
 
-const Members = () => {
+const Members = ({ organizations }: { organizations: Organization[] }) => {
+  const [index, setIndex] = useState(0);
+
+  const OrganizationCard = ({
+    organization,
+  }: {
+    organization: Organization;
+  }) => (
+    <div className="h-full w-full ">
+      <img
+        src={ImageUtils.getMediaUrl(organization.media[0])}
+        alt={organization.name}
+        className="w-full h-full object-cover object-center"
+      />
+    </div>
+  );
+
+  const scrollNext = () => {
+    let curIndex = index + 4;
+    if (curIndex >= organizations.length) {
+      curIndex = 0;
+    }
+    setIndex(curIndex);
+  };
+
   return (
     <>
       <div className="px-global bg-gray-bg">
@@ -22,15 +50,29 @@ const Members = () => {
 
           <div className="min-w-fit flex flex-row items-center w-full justify-between">
             <div></div>
-            <div className="grid grid-cols-1 xs:grid-cols-2 gap-x-[30px] gap-y-[40px] lg:gap-x-[50px] sm:gap-y-[80px]">
-              <div className="h-[50px] w-[185px] bg-brand"></div>
-              <div className="h-[50px] w-[185px] bg-brand"></div>
-              <div className="h-[50px] w-[185px] bg-brand"></div>
-              <div className="h-[50px] w-[185px] bg-brand"></div>
-            </div>
+            <AnimatePresence key={index} exitBeforeEnter>
+              <motion.div
+                key="slider"
+                initial={{ x: '30vw', opacity: 0 }}
+                animate={{ x: 0, opacity: 1, transition: { duration: 0.5 } }}
+                exit={{ x: '-40vw', transition: { duration: 2 } }}
+                className="grid grid-cols-1 xs:grid-cols-2 gap-x-[30px] gap-y-[40px] lg:gap-x-[50px] sm:gap-y-[80px]"
+              >
+                {organizations.slice(index, index + 4).map((organization) => (
+                  <div
+                    key={organization.id}
+                    className="h-[100px] w-[185px] object-cover object-center"
+                  >
+                    <OrganizationCard organization={organization} />
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
 
             <div className="ml-[20px]">
-              <Icons.ChevronRight className="w-6 h-6 cursor-pointer" />
+              <button onClick={scrollNext}>
+                <Icons.ChevronRight className="w-6 h-6 cursor-pointer" />
+              </button>
             </div>
           </div>
         </div>

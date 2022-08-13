@@ -8,14 +8,15 @@ import LatestNews from './components/LatestNews';
 import Members from './components/Members';
 import OtherSay from './components/OtherSay';
 import UpcomingEvent from './components/UpcomingEvent';
+import { HomeResponse } from './home';
 
-const HomePage = () => {
+const HomePage = ({ home }: { home: HomeResponse }) => {
   return (
     <>
       <Layout>
         <Heading />
-        <About />
-        <LatestNews />
+        <About projects={home.projects} />
+        <LatestNews blogs={home.blogs} />
         <div className="px-global bg-brand">
           <div className="max-w-global py-[28px] sm:py-[42px] flex items-center justify-between mx-auto">
             <h3 className="text-white">
@@ -38,10 +39,10 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-        <Gallery />
-        <OtherSay />
-        <UpcomingEvent />
-        <Members />
+        <Gallery galleries={home.galleries} />
+        <OtherSay otherSays={home.otherSay} />
+        <UpcomingEvent events={home.events} />
+        <Members organizations={home.organizations} />
       </Layout>
     </>
   );

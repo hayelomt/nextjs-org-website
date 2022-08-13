@@ -119,7 +119,7 @@ const Header = ({
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </p>
 
-        <div className="flex gap-x-4">
+        <div className="flex gap-x-4 pr-0">
           <div className="h-[24px] w-[24px] rounded-full bg-brand">
             <Icons.Facebook />
           </div>

@@ -1,16 +1,7 @@
 import GalleryImages from '../../gallery/components/GalleryImages';
+import { Gallery } from '../../gallery/gallery';
 
-const Gallery = () => {
-  const GalleryCard = () => (
-    <div className="h-[252px] w-full sm:w-[321px] xl:w-full  max-w-[321px] overflow-hidden rounded-[20px]">
-      <img
-        src="/imgs/home/gallery1.jpeg"
-        className="w-full h-full"
-        alt="gallery"
-      />
-    </div>
-  );
-
+const Gallery = ({ galleries }: { galleries: Gallery[] }) => {
   return (
     <>
       <div className="px-global bg-white">
@@ -27,7 +18,7 @@ const Gallery = () => {
             </p>
           </div>
           <div className="flex w-full flex-col items-center gap-x-[30px] xl:flex-row">
-            <GalleryImages />
+            <GalleryImages galleries={galleries} />
           </div>
         </div>
       </div>

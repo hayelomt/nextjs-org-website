@@ -1,29 +1,64 @@
+import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
-import { ArrowedButton } from '../../../core/ui/shared/buttons';
+import { ArrowedButton, ArrowedLink } from '../../../core/ui/shared/buttons';
 import Icons from '../../../core/ui/utils/icons';
+import { useEffect, useRef, useState } from 'react';
+import { Project } from '../../ourprojects/project';
+import Link from 'next/link';
+import ImageUtils from '../../../core/ui/utils/image';
 
-const About = () => {
-  const CardItem = () => (
-    <div className="flex h-full w-fit xs:min-w-[400px] flex-col overflow-hidden rounded-[20px] flex-shrink-0 ">
-      <div
-        className="flex-1 bg-cover"
-        style={{
-          backgroundImage: 'url("/imgs/home/talk.jpeg")',
-        }}
-      ></div>
-      <div className="flex h-[110px] items-center justify-between bg-brand px-[18px] py-[16px] sm:px-[24px] sm:py-[20px]">
+const animate = {
+  container: {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5,
+      },
+    },
+  },
+  items: {
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  },
+};
+
+const About = ({ projects }: { projects: Project[] }) => {
+  const carousel = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+
+  const ProjectItem = ({ project }: { project: Project }) => (
+    <div className="aspect-about flex w-full flex-col min-w-[300px] md:min-w-[400px] max-w-[400px] rounded-[20px] overflow-hidden">
+      <div className="flex-1 bg-gray-100">
+        <img
+          src={ImageUtils.getMediaUrl(project.media[0])}
+          alt="project cover"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+      <div className="flex min-h-[110px] items-center justify-between bg-brand px-[18px] py-[12px] sm:px-[24px] sm:py-[20px]">
         <div className="flex flex-col text-white">
-          <h3 className="mb-1">Lorem Ipsum</h3>
-          <p className="body1 line-clamp-2">Praesent tincidunt neque id erat</p>
+          <h3 className="mb-1 line-clamp-1">{project.title}</h3>
+          <p className="body1 line-clamp-2">{project.description}</p>
         </div>
 
-        <div className="center h-[70px] w-[70px] rounded-full bg-white">
-          <Icons.ArrowRight className="w-[24px] h-fit text-red" />
+        <div className="center h-[70px] w-[70px] rounded-full bg-white flex-shrink-0">
+          <Link href="/projects/[id]" as={`/projects/${project.id}`}>
+            <a>
+              <Icons.ArrowRight className="w-[24px] h-fit text-red" />
+            </a>
+          </Link>
         </div>
       </div>
     </div>
   );
+
+  useEffect(() => {
+    setWidth(
+      carousel.current!.scrollWidth - carousel.current!.offsetWidth + 10
+    );
+  }, []);
 
   return (
     <>
@@ -33,35 +68,26 @@ const About = () => {
           style={{ boxShadow: '0px 12px 24px rgba(0, 0, 0, 0.02)' }}
         >
           <div className="absolute top-[-72px] h-[373px] w-full justify-center px-2 md:px-[48px] mx-auto flex">
-            <Swiper
-              navigation={true}
-              modules={[Navigation, Pagination]}
-              slidesPerView={1}
-              spaceBetween={10}
-              breakpoints={{
-                640: {
-                  slidesPerView: 1,
-                  spaceBetween: 20,
-                },
-                930: {
-                  slidesPerView: 2,
-                  spaceBetween: 40,
-                },
-                1340: {
-                  slidesPerView: 3,
-                  spaceBetween: 20,
-                },
-              }}
-              className="flex items-center justify-center max-w-global mx-auto "
+            <motion.div
+              className="max-w-global px-global overflow-hidden cursor-grab mx-auto w-full"
+              ref={carousel}
+              whileTap={{ cursor: 'grabbing' }}
             >
-              {Array(3)
-                .fill(null)
-                .map((_, i) => (
-                  <SwiperSlide key={`'about-card'-${i}`} className=" center">
-                    <CardItem />
-                  </SwiperSlide>
+              <motion.div
+                variants={animate.container}
+                initial="hidden"
+                animate="show"
+                drag="x"
+                dragConstraints={{ right: 0, left: -width }}
+                className="mx-auto flex w-fit gap-x-[30px] place-items-center"
+              >
+                {projects.map((project) => (
+                  <motion.div variants={animate.items} key={project.id}>
+                    <ProjectItem project={project} />
+                  </motion.div>
                 ))}
-            </Swiper>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
 
@@ -102,7 +128,7 @@ const About = () => {
               people, thereby contributing to national development.
             </p>
             <div>
-              <ArrowedButton label="Learn More" onClick={() => {}} />
+              <ArrowedLink label="Lean More" href="/about" as="/about" />
             </div>
           </div>
         </div>
