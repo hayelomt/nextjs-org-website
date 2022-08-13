@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import { ArrowedButton } from '../../../core/ui/shared/buttons';
 import Icons from '../../../core/ui/utils/icons';
 
@@ -6,7 +7,7 @@ type VacancyProps = {
   description: string;
   deadline: string;
   minExperience: string;
-  positions: string;
+  positions: number;
   type?: 'plain' | 'brand';
   onShowVacancy: () => void;
 };
@@ -39,7 +40,9 @@ const VacancyCard = ({
             <p className="uppercase text-[14px] sm:text-[16px] font-barlow !text-[#001234] !font-medium  mr-[20px] sm:mr-[32px]">
               DEADLINE
             </p>
-            <p className="body1">{deadline}</p>
+            <p className="body1">
+              {DateTime.fromISO(deadline).toLocaleString(DateTime.DATE_FULL)}
+            </p>
           </div>
           <div className="flex items-center">
             <span className="mr-2 sm:mr-4 ">
@@ -84,7 +87,9 @@ const VacancyCard = ({
             <p className="uppercase text-[14px] sm:text-[16px] font-barlow text-white font-medium mr-[20px]  sm:mr-[32px]">
               DEADLINE
             </p>
-            <p className="body1">{deadline}</p>
+            <p className="body1">
+              {DateTime.fromISO(deadline).toLocaleString(DateTime.DATE_FULL)}
+            </p>
           </div>
           <div className="flex items-center">
             <span className="mr-2 sm:mr-4 ">

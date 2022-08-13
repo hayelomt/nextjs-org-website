@@ -5,10 +5,11 @@ import { Modal } from '../../core/ui/shared';
 import { TextHeading } from '../../core/ui/shared/heading';
 import JobApplicationForm from './components/JobApplicationForm';
 import VacancyCard from './components/VacancyCard';
+import { Vacancy } from './vacancy';
 
-const VacancyPage = () => {
+const VacancyPage = ({ vacancies }: { vacancies: Vacancy[] }) => {
   const [showModal, setShowModal] = useState(false);
-  const { patterns } = usePattern(6);
+  const { patterns } = usePattern(vacancies.length);
 
   return (
     <>
@@ -36,22 +37,18 @@ const VacancyPage = () => {
         <div className="px-global w-full pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px] bg-white">
           <div className="max-w-global mx-auto flex flex-col">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] sm:gap-[43px] mx-auto">
-              {Array(6)
-                .fill(null)
-                .map((_, i) => (
-                  <VacancyCard
-                    title="Accountant"
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut enim vitae nisl cursus feugiat. Praesent condimentum velit
-        vitae porta luctus. In hac habitasse platea dictumst. In lacus
-        lacus, gravida vel lacus et, tristique faucibus dolor."
-                    deadline="12 Aug 2014"
-                    minExperience="4+ Years"
-                    positions="2"
-                    key={`vacancy-${i}`}
-                    type={patterns[i] === 0 ? 'plain' : 'brand'}
-                    onShowVacancy={() => setShowModal(true)}
-                  />
-                ))}
+              {vacancies.map((vacancy, i) => (
+                <VacancyCard
+                  title={vacancy.title}
+                  description={vacancy.description}
+                  deadline={vacancy.deadline}
+                  minExperience={vacancy.min_experience}
+                  positions={vacancy.positions}
+                  key={vacancy.id}
+                  type={patterns[i] === 0 ? 'plain' : 'brand'}
+                  onShowVacancy={() => setShowModal(true)}
+                />
+              ))}
             </div>
           </div>
         </div>
