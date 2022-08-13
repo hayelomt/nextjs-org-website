@@ -24,24 +24,14 @@ const JobApplicationForm = ({
           >
             <Icons.Close />
           </div>
-          <h3 className="mb-[20px] sm:mb-[50px]">
-            Accountant Job Application Form
-          </h3>
 
-          <div className="mb-[14px] flex flex-col w-full sm:w-1/2">
-            <div className="flex flex-col">
-              <input
-                className="w-full min-w-fit lg:min-w-[342px] rounded-[16px] border border-[#D6D4D3]"
-                type="text"
-                placeholder="Vacancy"
-                value={vacancy.title}
-                onChange={formik.handleChange}
-                disabled
-              />
-              {Boolean(
-                formik.touched.vacancy_id && formik.errors.vacancy_id
-              ) && <p className="error-text">{formik.errors.vacancy_id}</p>}
-            </div>
+          <div className="w-full flex flex-col">
+            <h3 className="mb-[20px] sm:mb-[50px]">
+              {vacancy.title} Job Application Form
+            </h3>
+            {Boolean(formik.touched.vacancy_id && formik.errors.vacancy_id) && (
+              <p className="error-text mt-1">{formik.errors.vacancy_id}</p>
+            )}
           </div>
 
           <div className="mb-[14px] flex flex-col sm:flex-row gap-[16px] sm:mb-[20px] sm:gap-[31px]">
