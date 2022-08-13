@@ -25,7 +25,10 @@ const OurProjectCard = ({ project }: { project: Project }) => {
         <div className="flex w-full flex-col px-[24px] py-[25px] sm:px-[50px] sm:py-[55px]">
           <p className="subtitle mb-2">Progress</p>
           <div className="mb-[18px] h-[8px] w-full bg-gray-bg sm:mb-[30px]">
-            <div className="flex h-full w-[50%] bg-red"></div>
+            <div
+              className="flex h-full bg-red"
+              style={{ width: `${project.progress}%` }}
+            ></div>
           </div>
           <h3 className="mb-2 line-clamp-2">
             {TextUtils.clamp(project.title, 40)}

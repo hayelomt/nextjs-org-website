@@ -14,11 +14,13 @@
   }
 
   [type='text'],
+  [type='email'],
   textarea {
-    @apply focus:ring-brand focus:border-brand;
+    @apply focus:ring-brand focus:border-brand disabled:text-gray-500;
   }
 
-  [type='text'] {
+  [type='text'],
+  [type='email'] {
     @apply h-[40px] sm:h-[55px];
   }
 

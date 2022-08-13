@@ -8,7 +8,7 @@ import VacancyCard from './components/VacancyCard';
 import { Vacancy } from './vacancy';
 
 const VacancyPage = ({ vacancies }: { vacancies: Vacancy[] }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [apply, setApply] = useState<Vacancy | null>(null);
   const { patterns } = usePattern(vacancies.length);
 
   return (
@@ -46,17 +46,18 @@ const VacancyPage = ({ vacancies }: { vacancies: Vacancy[] }) => {
                   positions={vacancy.positions}
                   key={vacancy.id}
                   type={patterns[i] === 0 ? 'plain' : 'brand'}
-                  onShowVacancy={() => setShowModal(true)}
+                  onShowVacancy={() => setApply(vacancy)}
                 />
               ))}
             </div>
           </div>
         </div>
       </Layout>
-
-      <Modal showModal={showModal} setHideModal={() => setShowModal(false)}>
-        <JobApplicationForm onCancel={() => setShowModal(false)} />
-      </Modal>
+      {apply !== null && (
+        <Modal showModal={apply !== null} setHideModal={() => setApply(null)}>
+          <JobApplicationForm vacancy={apply} onCancel={() => setApply(null)} />
+        </Modal>
+      )}
     </>
   );
 };
