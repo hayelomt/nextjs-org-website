@@ -5,10 +5,11 @@ import { Modal } from '../../core/ui/shared';
 import { TextHeading } from '../../core/ui/shared/heading';
 import TenderApplicationForm from './components/TenderApplicationForm';
 import TenderCard from './components/TenderCard';
+import { Tender } from './tender';
 
-const TenderPage = () => {
+const TenderPage = ({ tenders }: { tenders: Tender[] }) => {
   const [showModal, setShowModal] = useState(false);
-  const { patterns } = usePattern(6);
+  const { patterns } = usePattern(tenders.length);
 
   return (
     <>
@@ -32,21 +33,16 @@ const TenderPage = () => {
         <div className="px-global w-full pt-[35px] pb-[60px] sm:pt-[72px] sm:pb-[136px] bg-white">
           <div className="max-w-global mx-auto flex flex-col">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-[20px] sm:gap-[43px] mx-auto">
-              {Array(6)
-                .fill(null)
-                .map((_, i) => (
-                  <TenderCard
-                    key={`tender-${i}`}
-                    title="Accountant"
-                    description="  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                ut enim vitae nisl cursus feugiat. Praesent condimentum velit
-                vitae porta luctus. In hac habitasse platea dictumst. In lacus
-                lacus, gravida vel lacus et, tristique faucibus dolor."
-                    deadline="21 Aug, 2022"
-                    type={patterns[i] === 0 ? 'plain' : 'brand'}
-                    onShowTender={() => setShowModal(true)}
-                  />
-                ))}
+              {tenders.map((tender, i) => (
+                <TenderCard
+                  key={tender.id}
+                  title={tender.title}
+                  description={tender.description}
+                  deadline={tender.deadline}
+                  type={patterns[i] === 0 ? 'plain' : 'brand'}
+                  onShowTender={() => setShowModal(true)}
+                />
+              ))}
             </div>
           </div>
         </div>
