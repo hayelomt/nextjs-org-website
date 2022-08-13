@@ -87,7 +87,7 @@ const Modal = ({
               onClick={(e) => {
                 e.stopPropagation();
               }}
-              className="flex items-center justify-center"
+              className="flex items-center justify-center px-global"
             >
               {children}
             </motion.div>

@@ -8,7 +8,7 @@ import TenderCard from './components/TenderCard';
 import { Tender } from './tender';
 
 const TenderPage = ({ tenders }: { tenders: Tender[] }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [bid, setBid] = useState<Tender | null>(null);
   const { patterns } = usePattern(tenders.length);
 
   return (
@@ -40,7 +40,7 @@ const TenderPage = ({ tenders }: { tenders: Tender[] }) => {
                   description={tender.description}
                   deadline={tender.deadline}
                   type={patterns[i] === 0 ? 'plain' : 'brand'}
-                  onShowTender={() => setShowModal(true)}
+                  onShowTender={() => setBid(tender)}
                 />
               ))}
             </div>
@@ -48,9 +48,11 @@ const TenderPage = ({ tenders }: { tenders: Tender[] }) => {
         </div>
       </Layout>
 
-      <Modal showModal={showModal} setHideModal={() => setShowModal(false)}>
-        <TenderApplicationForm onCancel={() => setShowModal(false)} />
-      </Modal>
+      {bid !== null && (
+        <Modal showModal={bid !== null} setHideModal={() => setBid(null)}>
+          <TenderApplicationForm tender={bid} onCancel={() => setBid(null)} />
+        </Modal>
+      )}
     </>
   );
 };

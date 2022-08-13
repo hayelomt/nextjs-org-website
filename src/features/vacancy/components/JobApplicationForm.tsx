@@ -17,11 +17,8 @@ const JobApplicationForm = ({
   return (
     <>
       <form onSubmit={formik.handleSubmit}>
-        <div className="mx-4 my-2 w-full flex max-w-[822px] flex-col rounded-[32px] bg-white py-[30px] px-[23px] sm:py-[65px] sm:px-[56px] relative">
-          <div
-            className="absolute top-[20px] sm:top-[35px] right-[20px] sm:right-[35px]"
-            onClick={onCancel}
-          >
+        <div className="my-2 w-full flex max-w-[822px] flex-col rounded-[32px] bg-white py-[40px] px-[23px] sm:py-[65px] sm:px-[56px] relative">
+          <div className="absolute top-[20px] right-[20px]" onClick={onCancel}>
             <Icons.Close />
           </div>
 
@@ -94,7 +91,7 @@ const JobApplicationForm = ({
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center max-w-[250px] overflow-hidden">
             <p className="subheading mr-[35px] sm:mr-[60px]">Upload your CV</p>
 
             <div className="flex flex-col">
